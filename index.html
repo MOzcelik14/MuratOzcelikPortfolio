@@ -448,6 +448,39 @@
   .proj p{ color:var(--ink-dim); font-size:0.88rem; margin:0; }
   .proj .go{ font-family:'JetBrains Mono', monospace; font-size:0.78rem; color:var(--teal); margin-top:auto; }
 
+  /* ---------- CUSTOM VIDEO PLAY/PAUSE ---------- */
+  .video-embed{ position:relative; }
+  .video-embed iframe{ pointer-events:none; }
+  .yt-toggle{
+    position:absolute;
+    right:14px; bottom:14px;
+    width:44px; height:44px;
+    border-radius:50%;
+    border:none;
+    cursor:pointer;
+    background:linear-gradient(135deg, var(--amber), var(--crimson));
+    box-shadow:0 6px 18px -4px rgba(0,0,0,0.5);
+    display:flex; align-items:center; justify-content:center;
+    transition:transform 0.15s ease, opacity 0.2s ease;
+    opacity:0.88;
+  }
+  .yt-toggle:hover{ transform:scale(1.08); opacity:1; }
+  .yt-toggle::before{
+    content:"";
+    width:0; height:0;
+    border-style:solid;
+    border-width:8px 0 8px 13px;
+    border-color:transparent transparent transparent #14171c;
+    margin-left:3px;
+  }
+  .yt-toggle.playing::before{
+    width:11px; height:14px;
+    border-style:double;
+    border-width:0 0 0 11px;
+    border-color:#14171c;
+    margin-left:0;
+  }
+
   /* ---------- FOOTER / CONTACT ---------- */
   footer{
     padding:4.5rem 1.5rem 3rem;
@@ -613,24 +646,27 @@
       <span class="tag">Kısa Film</span>
       <h3>Zamansız Yolculuk</h3>
       <p>Yönetmenlik · Senaryo · Ses ve Müzik</p>
-      <div style="aspect-ratio:16/9; margin-top:0.4rem; border-radius:2px; overflow:hidden;">
-        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/FaE6MVLz2mk" title="zamansız yolculuk. - Kısa Film" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="display:block;"></iframe>
+      <div class="video-embed" style="aspect-ratio:16/9; margin-top:0.4rem; border-radius:2px; overflow:hidden; position:relative;">
+        <iframe id="yt-zamansiz" width="100%" height="100%" src="https://www.youtube.com/embed/FaE6MVLz2mk?enablejsapi=1&controls=0&modestbranding=1&rel=0&iv_load_policy=3" title="zamansız yolculuk. - Kısa Film" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="display:block;"></iframe>
+        <button class="yt-toggle" data-target="yt-zamansiz" aria-label="Oynat / Duraklat"></button>
       </div>
     </div>
     <div class="proj" style="cursor:default;">
       <span class="tag">Kısa Film</span>
       <h3>Gaia'nın Çığlığı</h3>
       <p>Görüntü Yönetmenliği · Kurgu · Ses ve Müzik</p>
-      <div style="aspect-ratio:16/9; margin-top:0.4rem; border-radius:2px; overflow:hidden;">
-        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/VOI6pa3I4jM" title="gaiaeng" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="display:block;"></iframe>
+      <div class="video-embed" style="aspect-ratio:16/9; margin-top:0.4rem; border-radius:2px; overflow:hidden; position:relative;">
+        <iframe id="yt-gaia" width="100%" height="100%" src="https://www.youtube.com/embed/VOI6pa3I4jM?enablejsapi=1&controls=0&modestbranding=1&rel=0&iv_load_policy=3" title="gaiaeng" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="display:block;"></iframe>
+        <button class="yt-toggle" data-target="yt-gaia" aria-label="Oynat / Duraklat"></button>
       </div>
     </div>
     <div class="proj" style="cursor:default;">
       <span class="tag">Kısa Film</span>
       <h3>DISTANT</h3>
       <p>Yönetmenlik · Görüntü Yönetmenliği · Kurgu · Ses</p>
-      <div style="aspect-ratio:16/9; margin-top:0.4rem; border-radius:2px; overflow:hidden;">
-        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/tJGxSjigk_o" title="DISTANT - Short Film" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="display:block;"></iframe>
+      <div class="video-embed" style="aspect-ratio:16/9; margin-top:0.4rem; border-radius:2px; overflow:hidden; position:relative;">
+        <iframe id="yt-distant" width="100%" height="100%" src="https://www.youtube.com/embed/tJGxSjigk_o?enablejsapi=1&controls=0&modestbranding=1&rel=0&iv_load_policy=3" title="DISTANT - Short Film" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="display:block;"></iframe>
+        <button class="yt-toggle" data-target="yt-distant" aria-label="Oynat / Duraklat"></button>
       </div>
     </div>
   </div>
@@ -791,6 +827,19 @@
     });
   }, { threshold: 0.12 });
   revealEls.forEach(el => io.observe(el));
+
+  // Custom YouTube play/pause (no native controls/title/seekbar)
+  document.querySelectorAll('.yt-toggle').forEach(btn => {
+    let playing = false;
+    btn.addEventListener('click', () => {
+      const iframe = document.getElementById(btn.dataset.target);
+      if (!iframe) return;
+      const cmd = playing ? 'pauseVideo' : 'playVideo';
+      iframe.contentWindow.postMessage(JSON.stringify({ event: 'command', func: cmd, args: [] }), '*');
+      playing = !playing;
+      btn.classList.toggle('playing', playing);
+    });
+  });
 </script>
 
 </body>
