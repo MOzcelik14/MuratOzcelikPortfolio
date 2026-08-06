@@ -647,8 +647,8 @@
       <h3>Zamansız Yolculuk</h3>
       <p>Yönetmenlik · Senaryo · Ses ve Müzik</p>
       <div class="video-embed" style="aspect-ratio:16/9; margin-top:0.4rem; border-radius:2px; overflow:hidden; position:relative;">
-        <iframe id="yt-zamansiz" width="100%" height="100%" src="https://www.youtube.com/embed/FaE6MVLz2mk?enablejsapi=1&controls=0&modestbranding=1&rel=0&iv_load_policy=3" title="zamansız yolculuk. - Kısa Film" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="display:block;"></iframe>
-        <button class="yt-toggle" data-target="yt-zamansiz" aria-label="Oynat / Duraklat"></button>
+        <iframe id="yt-zamansiz" width="100%" height="100%" src="https://www.youtube.com/embed/FaE6MVLz2mk?enablejsapi=1&controls=0&modestbranding=1&rel=0&iv_load_policy=3&autoplay=1&mute=1&playlist=FaE6MVLz2mk&loop=1" title="zamansız yolculuk. - Kısa Film" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="display:block;"></iframe>
+        <button class="yt-toggle playing" data-target="yt-zamansiz" aria-label="Oynat / Duraklat"></button>
       </div>
     </div>
     <div class="proj" style="cursor:default;">
@@ -656,8 +656,8 @@
       <h3>Gaia'nın Çığlığı</h3>
       <p>Görüntü Yönetmenliği · Kurgu · Ses ve Müzik</p>
       <div class="video-embed" style="aspect-ratio:16/9; margin-top:0.4rem; border-radius:2px; overflow:hidden; position:relative;">
-        <iframe id="yt-gaia" width="100%" height="100%" src="https://www.youtube.com/embed/VOI6pa3I4jM?enablejsapi=1&controls=0&modestbranding=1&rel=0&iv_load_policy=3" title="gaiaeng" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="display:block;"></iframe>
-        <button class="yt-toggle" data-target="yt-gaia" aria-label="Oynat / Duraklat"></button>
+        <iframe id="yt-gaia" width="100%" height="100%" src="https://www.youtube.com/embed/VOI6pa3I4jM?enablejsapi=1&controls=0&modestbranding=1&rel=0&iv_load_policy=3&autoplay=1&mute=1&playlist=VOI6pa3I4jM&loop=1" title="gaiaeng" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="display:block;"></iframe>
+        <button class="yt-toggle playing" data-target="yt-gaia" aria-label="Oynat / Duraklat"></button>
       </div>
     </div>
     <div class="proj" style="cursor:default;">
@@ -665,8 +665,8 @@
       <h3>DISTANT</h3>
       <p>Yönetmenlik · Görüntü Yönetmenliği · Kurgu · Ses</p>
       <div class="video-embed" style="aspect-ratio:16/9; margin-top:0.4rem; border-radius:2px; overflow:hidden; position:relative;">
-        <iframe id="yt-distant" width="100%" height="100%" src="https://www.youtube.com/embed/tJGxSjigk_o?enablejsapi=1&controls=0&modestbranding=1&rel=0&iv_load_policy=3" title="DISTANT - Short Film" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="display:block;"></iframe>
-        <button class="yt-toggle" data-target="yt-distant" aria-label="Oynat / Duraklat"></button>
+        <iframe id="yt-distant" width="100%" height="100%" src="https://www.youtube.com/embed/tJGxSjigk_o?enablejsapi=1&controls=0&modestbranding=1&rel=0&iv_load_policy=3&autoplay=1&mute=1&playlist=tJGxSjigk_o&loop=1" title="DISTANT - Short Film" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="display:block;"></iframe>
+        <button class="yt-toggle playing" data-target="yt-distant" aria-label="Oynat / Duraklat"></button>
       </div>
     </div>
   </div>
@@ -830,7 +830,7 @@
 
   // Custom YouTube play/pause (no native controls/title/seekbar)
   document.querySelectorAll('.yt-toggle').forEach(btn => {
-    let playing = false;
+    let playing = btn.classList.contains('playing');
     btn.addEventListener('click', () => {
       const iframe = document.getElementById(btn.dataset.target);
       if (!iframe) return;
