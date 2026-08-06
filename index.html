@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Murat Özçelik — Portfolyo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,500;1,9..144,600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#14171c;
+    --bg-alt:#1b1f26;
+    --bg-raised:#20242c;
+    --paper:#ede6d8;
+    --ink:#ede6d8;
+    --ink-dim:#9aa1ac;
+    --ink-faint:#666e7a;
+    --amber:#e8a33d;
+    --teal:#5fa8a0;
+    --crimson:#c1443c;
+    --line: rgba(237,230,216,0.12);
+    --radius: 3px;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:
+      radial-gradient(ellipse 1000px 600px at 15% -5%, rgba(232,163,61,0.20), transparent 60%),
+      radial-gradient(ellipse 900px 700px at 100% 25%, rgba(95,168,160,0.16), transparent 55%),
+      radial-gradient(ellipse 800px 600px at 5% 75%, rgba(193,68,60,0.13), transparent 55%),
+      radial-gradient(ellipse 700px 500px at 90% 95%, rgba(232,163,61,0.10), transparent 55%),
+      var(--bg);
+    background-attachment:fixed;
+    color:var(--ink);
+    font-family:'Inter', sans-serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:0.01ms !important; transition-duration:0.01ms !important;}
+  }
+
+  ::selection{ background:var(--amber); color:#14171c; }
+
+  a{color:inherit;}
+  h1,h2,h3{
+    font-family:'Fraunces', serif;
+    margin:0;
+    font-weight:600;
+  }
+
+  .eyebrow{
+    font-family:'JetBrains Mono', monospace;
+    font-size:0.72rem;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--amber);
+    display:flex;
+    align-items:center;
+    gap:0.6em;
+    margin-bottom:1.1rem;
+  }
+  .eyebrow::before{
+    content:"";
+    width:7px;height:7px;border-radius:50%;
+    background:var(--crimson);
+    box-shadow:0 0 0 3px rgba(193,68,60,0.18);
+  }
+
+  section{
+    padding:5.5rem 1.5rem;
+    max-width:920px;
+    margin:0 auto;
+    border-bottom:1px solid var(--line);
+  }
+  section:last-of-type{border-bottom:none;}
+
+  /* ---------- NAV ---------- */
+  nav{
+    position:sticky; top:0; z-index:50;
+    background:rgba(20,23,28,0.88);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{
+    max-width:920px; margin:0 auto;
+    padding:0.9rem 1.5rem;
+    display:flex; align-items:center; justify-content:space-between;
+  }
+  .nav-mark{
+    font-family:'JetBrains Mono', monospace;
+    font-weight:700; font-size:0.95rem;
+    letter-spacing:0.02em;
+    display:flex; align-items:center; gap:0.5rem;
+  }
+  .nav-mark .rec{
+    width:8px;height:8px;border-radius:50%;
+    background:var(--crimson);
+    animation:blink 2.4s ease-in-out infinite;
+  }
+  @keyframes blink{ 0%,100%{opacity:1;} 50%{opacity:0.25;} }
+  .nav-links{
+    display:flex; gap:1.5rem;
+    font-family:'JetBrains Mono', monospace;
+    font-size:0.72rem;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+  }
+  .nav-links a{
+    text-decoration:none; color:var(--ink-dim);
+    padding:0.3rem 0; border-bottom:1px solid transparent;
+    transition:color 0.2s, border-color 0.2s;
+  }
+  .nav-links a:hover{ color:var(--amber); border-color:var(--amber); }
+  @media (max-width:640px){ .nav-links{ display:none; } }
+
+  /* ---------- HERO / CLAPPERBOARD ---------- */
+  .hero{
+    padding:0 1.5rem;
+    max-width:920px; margin:0 auto;
+    border-bottom:1px solid var(--line);
+  }
+  .slate{
+    margin-top:3rem;
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    overflow:hidden;
+    background:var(--bg-alt);
+  }
+  .slate-stripes{
+    height:22px;
+    background:repeating-linear-gradient(
+      -35deg,
+      #14171c 0 22px,
+      var(--paper) 22px 44px
+    );
+    border-bottom:1px solid var(--line);
+  }
+  .slate-body{ padding:2.6rem 2rem 2.2rem; }
+  .slate-title{
+    font-size:clamp(2.6rem, 8vw, 4.6rem);
+    line-height:1;
+    letter-spacing:-0.01em;
+  }
+  .slate-title em{
+    font-style:italic;
+    font-weight:500;
+    background:linear-gradient(100deg, var(--amber) 10%, #f2c675 45%, var(--crimson) 90%);
+    -webkit-background-clip:text;
+    background-clip:text;
+    -webkit-text-fill-color:transparent;
+  }
+  .slate-tag{
+    margin-top:0.9rem;
+    color:var(--ink-dim);
+    font-size:1.05rem;
+    max-width:38ch;
+  }
+  .slate-fields{
+    margin-top:2.2rem;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
+    border-top:1px solid var(--line);
+  }
+  .slate-field{
+    padding:0.9rem 0;
+    border-right:1px solid var(--line);
+    padding-right:1rem;
+  }
+  .slate-field:last-child{ border-right:none; }
+  .slate-field .k{
+    font-family:'JetBrains Mono', monospace;
+    font-size:0.65rem;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    color:var(--ink-faint);
+    display:block;
+    margin-bottom:0.3rem;
+  }
+  .slate-field .v{
+    font-size:0.92rem;
+    color:var(--ink);
+  }
+  .slate-stripes-bottom{
+    height:10px;
+    background:repeating-linear-gradient(
+      -35deg,
+      #14171c 0 22px,
+      var(--paper) 22px 44px
+    );
+    border-top:1px solid var(--line);
+  }
+
+  /* ---------- ABOUT ---------- */
+  .about-grid{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:2rem;
+  }
+  .about-lead{
+    font-family:'Fraunces', serif;
+    font-size:1.5rem;
+    font-weight:500;
+    font-style:italic;
+    line-height:1.5;
+    color:var(--paper);
+    max-width:34ch;
+  }
+  .about-body p{
+    color:var(--ink-dim);
+    margin:0 0 1rem;
+  }
+  .alias-card{
+    margin-top:1.6rem;
+    border-left:2px solid var(--amber);
+    padding:0.9rem 1.2rem;
+    background:linear-gradient(120deg, rgba(95,168,160,0.08), var(--bg-alt) 60%);
+    border-radius:0 var(--radius) var(--radius) 0;
+  }
+  .alias-card .k{
+    font-family:'JetBrains Mono', monospace;
+    font-size:0.7rem; letter-spacing:0.1em;
+    text-transform:uppercase; color:var(--teal);
+  }
+  .alias-card p{ margin:0.4rem 0 0; color:var(--ink-dim); font-size:0.95rem;}
+
+  /* ---------- TIMELINE (SIGNATURE) ---------- */
+  .timeline-wrap{
+    position:relative;
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    background:linear-gradient(165deg, var(--bg-alt), var(--bg-raised));
+    overflow:hidden;
+    box-shadow:0 0 0 1px rgba(232,163,61,0.06), 0 20px 50px -30px rgba(232,163,61,0.35);
+  }
+  .timeline-wrap::before{
+    content:"";
+    position:absolute; top:0; left:-30%;
+    width:30%; height:100%;
+    background:linear-gradient(90deg, transparent, rgba(232,163,61,0.10), rgba(95,168,160,0.08), transparent);
+    animation:sheen 7s ease-in-out infinite;
+    pointer-events:none;
+    z-index:1;
+  }
+  @keyframes sheen{
+    0%{ left:-30%; }
+    50%{ left:110%; }
+    100%{ left:110%; }
+  }
+  .tracks-area{ position:relative; }
+  .playhead{
+    position:absolute;
+    top:0; bottom:0; left:8%;
+    width:2px;
+    background:linear-gradient(180deg, var(--amber), var(--teal));
+    box-shadow:0 0 14px 2px rgba(232,163,61,0.55);
+    opacity:0;
+    transition:left 0.55s cubic-bezier(.2,.8,.3,1), opacity 0.4s ease;
+    pointer-events:none;
+    z-index:3;
+  }
+  .playhead::before{
+    content:"";
+    position:absolute; top:-4px; left:50%;
+    width:8px; height:8px;
+    transform:translateX(-50%);
+    border-radius:50%;
+    background:var(--amber);
+    box-shadow:0 0 8px 2px rgba(232,163,61,0.8);
+  }
+  .playhead.shown{ opacity:1; }
+  .ruler{
+    display:flex;
+    font-family:'JetBrains Mono', monospace;
+    font-size:0.65rem;
+    color:var(--ink-faint);
+    border-bottom:1px solid var(--line);
+    padding:0.5rem 1rem;
+    justify-content:space-between;
+    position:relative; z-index:2;
+  }
+  .track{
+    display:flex;
+    border-bottom:1px solid var(--line);
+    align-items:stretch;
+    min-height:64px;
+    position:relative; z-index:2;
+  }
+  .track:last-child{ border-bottom:none; }
+  .track-label{
+    width:92px;
+    flex-shrink:0;
+    font-family:'JetBrains Mono', monospace;
+    font-size:0.72rem;
+    color:var(--ink-dim);
+    display:flex; flex-direction:column;
+    justify-content:center;
+    padding:0.6rem 0.8rem;
+    border-right:1px solid var(--line);
+    background:linear-gradient(180deg, rgba(0,0,0,0.22), rgba(0,0,0,0.1));
+  }
+  .track-label b{ color:var(--ink); font-size:0.8rem; }
+  .clips{
+    display:flex; align-items:center;
+    gap:0.5rem;
+    padding:0.7rem 0.8rem;
+    flex-wrap:wrap;
+    flex:1;
+  }
+  .clip{
+    font-family:'JetBrains Mono', monospace;
+    font-size:0.76rem;
+    padding:0.5rem 0.8rem;
+    border-radius:2px;
+    cursor:pointer;
+    border:1px solid transparent;
+    transition:transform 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
+    color:#14171c;
+    font-weight:600;
+  }
+  .clip:hover, .clip:focus-visible{
+    transform:translateY(-3px) scale(1.03);
+    border-color:rgba(20,23,28,0.4);
+    outline:none;
+  }
+  .clip.active{ transform:translateY(-2px) scale(1.03); }
+  .track-video .clip{ background:linear-gradient(135deg, #f6c785, var(--amber)); }
+  .track-code .clip{ background:linear-gradient(135deg, #8fd4cb, var(--teal)); }
+  .track-audio .clip{ background:linear-gradient(135deg, #f0e4c4, #d8c9a3); }
+  .track-video .clip.active{ box-shadow:0 0 0 2px #14171c, 0 0 20px 3px rgba(232,163,61,0.7); }
+  .track-code .clip.active{ box-shadow:0 0 0 2px #14171c, 0 0 20px 3px rgba(95,168,160,0.7); }
+  .track-audio .clip.active{ box-shadow:0 0 0 2px #14171c, 0 0 20px 3px rgba(216,201,163,0.7); }
+
+  .monitor{
+    margin:0;
+    padding:1.1rem 1.3rem;
+    background:linear-gradient(180deg, #0f1115, #0a0c0f);
+    border-top:1px solid var(--line);
+    min-height:76px;
+    position:relative; z-index:2;
+  }
+  .monitor .k{
+    font-family:'JetBrains Mono', monospace;
+    font-size:0.68rem; letter-spacing:0.08em; text-transform:uppercase;
+    background:linear-gradient(90deg, var(--amber), #f2c675);
+    -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;
+  }
+  .monitor p{
+    margin:0.4rem 0 0;
+    color:var(--ink-dim);
+    font-size:0.92rem;
+  }
+
+  /* ---------- CREDITS / EXPERIENCE ---------- */
+  .credits-list{
+    list-style:none; margin:0; padding:0;
+  }
+  .credits-list li{
+    display:grid;
+    grid-template-columns:110px 1fr auto;
+    gap:1rem;
+    padding:0.95rem 0;
+    border-bottom:1px solid var(--line);
+    align-items:baseline;
+  }
+  .credits-list li:last-child{ border-bottom:none; }
+  .credits-list .role{ font-weight:600; color:var(--paper); }
+  .credits-list .org{ color:var(--ink-dim); font-size:0.92rem; }
+  .credits-list .when{
+    font-family:'JetBrains Mono', monospace;
+    font-size:0.7rem; color:var(--ink-faint);
+    text-align:right; white-space:nowrap;
+  }
+  @media (max-width:600px){
+    .credits-list li{ grid-template-columns:1fr; gap:0.2rem; }
+    .credits-list .when{ text-align:left; }
+  }
+
+  /* ---------- EDUCATION ---------- */
+  .edu-item{
+    padding:1.4rem 0;
+    border-bottom:1px solid var(--line);
+    display:grid;
+    grid-template-columns:1fr auto;
+    gap:1rem;
+  }
+  .edu-item:last-child{ border-bottom:none; }
+  .edu-item h3{ font-size:1.15rem; font-weight:600; color:var(--paper); }
+  .edu-item .field{ color:var(--ink-dim); font-size:0.92rem; margin-top:0.2rem; }
+  .edu-item .note{ color:var(--teal); font-size:0.85rem; margin-top:0.4rem; }
+  .edu-item .when{
+    font-family:'JetBrains Mono', monospace;
+    font-size:0.72rem; color:var(--ink-faint);
+    white-space:nowrap;
+  }
+
+  /* ---------- CERTS ---------- */
+  .cert-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill, minmax(240px,1fr));
+    gap:0.9rem;
+  }
+  .cert{
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:1rem 1.1rem;
+    background:linear-gradient(160deg, var(--bg-alt), var(--bg-raised));
+    transition:border-color 0.2s;
+  }
+  .cert:hover{ border-color:rgba(95,168,160,0.5); }
+  .cert .title{ font-weight:600; font-size:0.95rem; color:var(--paper); }
+  .cert .org{ color:var(--ink-dim); font-size:0.82rem; margin-top:0.25rem; }
+  .cert .date{
+    font-family:'JetBrains Mono', monospace;
+    font-size:0.68rem; color:var(--ink-faint); margin-top:0.5rem;
+  }
+
+  .lang-row{ display:flex; gap:2.5rem; margin-top:2.2rem; flex-wrap:wrap; }
+  .lang-row .lang b{ display:block; font-size:1rem; color:var(--paper); }
+  .lang-row .lang span{ color:var(--ink-dim); font-size:0.85rem; }
+
+  /* ---------- PROJECTS ---------- */
+  .proj-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(250px,1fr));
+    gap:1rem;
+  }
+  .proj{
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:1.4rem;
+    background:linear-gradient(160deg, var(--bg-alt), var(--bg-raised));
+    display:flex; flex-direction:column; gap:0.6rem;
+    text-decoration:none;
+    transition:border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+  }
+  .proj:hover{ border-color:var(--amber); transform:translateY(-3px); box-shadow:0 12px 28px -14px rgba(232,163,61,0.35); }
+  .proj .tag{
+    font-family:'JetBrains Mono', monospace;
+    font-size:0.65rem; letter-spacing:0.08em; text-transform:uppercase;
+    color:var(--amber);
+  }
+  .proj h3{ font-size:1.15rem; }
+  .proj p{ color:var(--ink-dim); font-size:0.88rem; margin:0; }
+  .proj .go{ font-family:'JetBrains Mono', monospace; font-size:0.78rem; color:var(--teal); margin-top:auto; }
+
+  /* ---------- FOOTER / CONTACT ---------- */
+  footer{
+    padding:4.5rem 1.5rem 3rem;
+    max-width:920px; margin:0 auto;
+    text-align:center;
+  }
+  footer h2{ font-size:2.1rem; margin-bottom:0.8rem; }
+  footer p{ color:var(--ink-dim); max-width:40ch; margin:0 auto 2rem; }
+  .contact-links{
+    display:flex; justify-content:center; gap:1rem; flex-wrap:wrap;
+  }
+  .contact-links a{
+    font-family:'JetBrains Mono', monospace;
+    font-size:0.8rem;
+    padding:0.7rem 1.2rem;
+    border:1px solid var(--line);
+    border-radius:2px;
+    text-decoration:none;
+    color:var(--ink);
+    transition:border-color 0.2s, color 0.2s, background 0.2s;
+  }
+  .contact-links a:hover{
+    border-color:var(--amber);
+    color:#14171c;
+    background:linear-gradient(120deg, var(--amber), #f2c675);
+  }
+  .fine-print{
+    margin-top:3rem;
+    font-family:'JetBrains Mono', monospace;
+    font-size:0.68rem;
+    color:var(--ink-faint);
+  }
+
+  .reveal{
+    opacity:0; transform:translateY(16px);
+    transition:opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.in{ opacity:1; transform:translateY(0); }
+
+  h2.section-title{
+    font-size:clamp(1.7rem, 4vw, 2.3rem);
+    margin-bottom:2.2rem;
+    color:var(--paper);
+    position:relative;
+    display:inline-block;
+    padding-bottom:0.7rem;
+  }
+  h2.section-title::after{
+    content:"";
+    position:absolute;
+    left:0; bottom:0;
+    width:56px; height:3px;
+    border-radius:3px;
+    background:linear-gradient(90deg, var(--amber), var(--crimson));
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <div class="nav-mark"><span class="rec"></span> M. ÖZÇELİK</div>
+    <div class="nav-links">
+      <a href="#hakkinda">Hakkında</a>
+      <a href="#filmler">Filmler</a>
+      <a href="#katildigim-calismalar">Katıldığım Çalışmalar</a>
+      <a href="#zaman-cizelgesi">Yetenekler</a>
+      <a href="#deneyim">Deneyim</a>
+      <a href="#egitim">Eğitim</a>
+      <a href="#projeler">Projeler</a>
+      <a href="#iletisim">İletişim</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="slate">
+    <div class="slate-stripes"></div>
+    <div class="slate-body">
+      <div class="eyebrow">Portfolyo</div>
+      <h1 class="slate-title">Murat <em>Özçelik</em></h1>
+      <p class="slate-tag">Radyo, Televizyon ve Sinema öğrencisiyim. Yazılım, video kurgu ve ses prodüksiyonuyla uğraşıyorum.</p>
+      <div class="slate-fields">
+        <div class="slate-field"><span class="k">Doğum</span><span class="v">2004, İstanbul</span></div>
+        <div class="slate-field"><span class="k">Rol</span><span class="v">Yönetmen · Geliştirici</span></div>
+        <div class="slate-field"><span class="k">Bölüm</span><span class="v">Radyo, TV ve Sinema</span></div>
+        <div class="slate-field"><span class="k">Mahlas</span><span class="v">M. Özçelik</span></div>
+      </div>
+    </div>
+    <div class="slate-stripes-bottom"></div>
+  </div>
+</header>
+
+<section id="hakkinda" class="reveal">
+  <div class="eyebrow">Hakkında</div>
+  <h2 class="section-title">Hakkında</h2>
+  <div class="about-grid">
+    <p class="about-lead">2004 İstanbul doğumluyum. Küçük yaşlardan beri teknoloji ve sanatla ilgileniyorum.</p>
+    <div class="about-body">
+      <p>Profilo Mesleki ve Teknik Anadolu Lisesi'nde Bilişim Teknolojileri / Veritabanı Programcılığı okudum. Sonra Bolu Abant İzzet Baysal Üniversitesi Radyo, Televizyon ve Sinema bölümüne başladım. Erasmus+ programıyla bir dönem Yunanistan'da İyonya Üniversitesi Görsel ve İşitsel Sanatlar Departmanı'nda okudum.</p>
+      <p>Yazılım tarafında C#, Java ve SQL kullanıyorum. Video kurguda Adobe Premiere, DaVinci Resolve ve Kdenlive; ses tarafında FL Studio, Ableton Live ve Audacity ile çalışıyorum. Kendi kısa filmlerimi yazıp yönetiyorum, müziklerini de kendim yapıyorum.</p>
+      <div class="alias-card">
+        <span class="k">M. Özçelik — müzik mahlası</span>
+        <p>Bu isimle beat, film müziği ve deneysel elektronik çalışmalar yapıyorum. TRT GİY ve Sabancı Vakfı Kısa Film Platformu'nda yer alan kısa film projelerinde görev aldım.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="zaman-cizelgesi" class="reveal">
+  <div class="eyebrow">Yetenekler</div>
+  <h2 class="section-title">Yetenekler</h2>
+  <p style="color:var(--ink-dim); margin-top:-1.4rem; margin-bottom:2rem; font-size:0.95rem;">Bir öğeye dokun, altta açıklamasını gör.</p>
+
+  <div class="timeline-wrap">
+    <div class="tracks-area">
+      <div class="playhead" id="playhead"></div>
+      <div class="ruler">
+        <span>00:00</span><span>00:10</span><span>00:20</span><span>00:30</span><span>00:40</span>
+      </div>
+
+      <div class="track track-video">
+        <div class="track-label"><b>V2</b> Görsel &amp; Film</div>
+        <div class="clips">
+          <button class="clip" data-title="Film Prodüksiyonu" data-desc="Kısa film yazıyor ve yönetiyorum. TRT GİY ve Sabancı Vakfı Kısa Film Platformu'nda yer alan projelerde görev aldım.">Film Prodüksiyonu</button>
+          <button class="clip" data-title="Kurgu" data-desc="DaVinci Resolve, Adobe Premiere ve Kdenlive kullanıyorum. Bilgeİş'ten sertifikam var.">Kurgu</button>
+          <button class="clip" data-title="Fotoğrafçılık" data-desc="Dijital fotoğrafçılık teknikleri üzerine Bilgeİş'ten sertifikam var.">Fotoğrafçılık</button>
+        </div>
+      </div>
+
+      <div class="track track-code">
+        <div class="track-label"><b>V1</b> Yazılım</div>
+        <div class="clips">
+          <button class="clip" data-title="C# Programlama" data-desc="BTK Akademi'den sertifikam var. WPF ile masaüstü arayüzleri de yapıyorum.">C#</button>
+          <button class="clip" data-title="Java Programlama" data-desc="Android uygulama geliştirmede kullanıyorum. BTK Akademi'den sertifikam var.">Java</button>
+          <button class="clip" data-title="SQL & Veritabanı" data-desc="Profilo MTAL'de veritabanı programcılığı okudum.">SQL</button>
+          <button class="clip" data-title="WPF" data-desc="Windows masaüstü uygulamaları için arayüz geliştiriyorum.">WPF</button>
+        </div>
+      </div>
+
+      <div class="track track-audio">
+        <div class="track-label"><b>A1</b> Ses &amp; Müzik</div>
+        <div class="clips">
+          <button class="clip" data-title="Ses Tasarımı" data-desc="Film ve proje sesleri için ses tasarımı yapıyorum.">Ses Tasarımı</button>
+          <button class="clip" data-title="Audacity" data-desc="Ses düzenleme için kullanıyorum. Bilgeİş'ten sertifikam var.">Audacity</button>
+          <button class="clip" data-title="FL Studio & Ableton" data-desc="M. Özçelik mahlasıyla beat, film müziği ve deneysel elektronik müzik yapıyorum.">FL Studio / Ableton</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="monitor">
+      <span class="k">Önizleme</span>
+      <p id="monitor-desc">Yukarıdaki öğelerden birine dokun, açıklaması burada görünsün.</p>
+    </div>
+  </div>
+</section>
+
+<section id="filmler" class="reveal">
+  <div class="eyebrow">Filmler</div>
+  <h2 class="section-title">Filmler</h2>
+  <div class="proj-grid">
+    <div class="proj" style="cursor:default;">
+      <span class="tag">Kısa Film</span>
+      <h3>Zamansız Yolculuk</h3>
+      <p>Yönetmenlik · Senaryo · Ses ve Müzik</p>
+      <div style="aspect-ratio:16/9; margin-top:0.4rem; border-radius:2px; overflow:hidden;">
+        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/FaE6MVLz2mk" title="zamansız yolculuk. - Kısa Film" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="display:block;"></iframe>
+      </div>
+    </div>
+    <div class="proj" style="cursor:default;">
+      <span class="tag">Kısa Film</span>
+      <h3>Gaia'nın Çığlığı</h3>
+      <p>Görüntü Yönetmenliği · Kurgu · Ses ve Müzik</p>
+      <div style="aspect-ratio:16/9; margin-top:0.4rem; border-radius:2px; overflow:hidden;">
+        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/VOI6pa3I4jM" title="gaiaeng" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="display:block;"></iframe>
+      </div>
+    </div>
+    <div class="proj" style="cursor:default;">
+      <span class="tag">Kısa Film</span>
+      <h3>DISTANT</h3>
+      <p>Yönetmenlik · Görüntü Yönetmenliği · Kurgu · Ses</p>
+      <div style="aspect-ratio:16/9; margin-top:0.4rem; border-radius:2px; overflow:hidden;">
+        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/tJGxSjigk_o" title="DISTANT - Short Film" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="display:block;"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="katildigim-calismalar" class="reveal">
+  <div class="eyebrow">Katıldığım Çalışmalar</div>
+  <h2 class="section-title">Katıldığım Çalışmalar</h2>
+  <ul class="credits-list">
+    <li>
+      <span class="role">Ses &amp; Müzik — "Yeniden Yeşer"</span>
+      <span class="org">Sabancı Vakfı Yeşil Vatan Kısa Film Yarışması</span>
+      <span class="when">2025</span>
+    </li>
+    <li>
+      <span class="role">Ses &amp; Müzik — "Büyük Kavuşma"</span>
+      <span class="org">TRT Geleceğin İletişimcileri Yarışması</span>
+      <span class="when">2024</span>
+    </li>
+  </ul>
+</section>
+
+<section id="deneyim" class="reveal">
+  <div class="eyebrow">Deneyim</div>
+  <h2 class="section-title">Deneyim</h2>
+  <ul class="credits-list">
+    <li>
+      <span class="role">Başkan Yardımcısı</span>
+      <span class="org">BAİBÜ Yedinci Sanat Topluluğu</span>
+      <span class="when">Kas 2025 — Devam ediyor</span>
+    </li>
+  </ul>
+</section>
+
+<section id="egitim" class="reveal">
+  <div class="eyebrow">Eğitim</div>
+  <h2 class="section-title">Eğitim</h2>
+
+  <div class="edu-item">
+    <div>
+      <h3>Bolu Abant İzzet Baysal Üniversitesi</h3>
+      <div class="field">Lisans Derecesi, Radyo, Televizyon ve Sinema</div>
+    </div>
+    <div class="when">Eki 2023 — Devam ediyor</div>
+  </div>
+
+  <div class="edu-item">
+    <div>
+      <h3>Ionian University <span style="color:var(--ink-faint); font-weight:400; font-size:0.9rem;">(Yunanistan)</span></h3>
+      <div class="field">Görsel ve İşitsel Sanatlar — Erasmus+ Öğrenci Değişim Programı</div>
+      <div class="note">Ortalama: 8.68</div>
+    </div>
+    <div class="when">Eyl 2025 — Şub 2026</div>
+  </div>
+
+  <div class="edu-item">
+    <div>
+      <h3>Profilo Mesleki ve Teknik Anadolu Lisesi</h3>
+      <div class="field">Bilişim Teknolojileri / Veritabanı Programcılığı</div>
+    </div>
+    <div class="when">Eyl 2018 — Haz 2022</div>
+  </div>
+
+  <div class="lang-row">
+    <div class="lang"><b>Türkçe</b><span>Ana dil</span></div>
+    <div class="lang"><b>İngilizce</b><span>C1 — Profesyonel yeterlilik</span></div>
+  </div>
+</section>
+
+<section id="sertifikalar" class="reveal">
+  <div class="eyebrow">Sertifikalar</div>
+  <h2 class="section-title">Sertifikalar</h2>
+  <div class="cert-grid">
+    <div class="cert"><div class="title">DaVinci Resolve ile Video Kurgulama</div><div class="org">Bilgeİş</div><div class="date">Eylül 2025</div></div>
+    <div class="cert"><div class="title">Fotoğrafçılık Teknikleri</div><div class="org">Bilgeİş</div><div class="date">Eylül 2025</div></div>
+    <div class="cert"><div class="title">Temel Elektronik</div><div class="org">Bilgeİş</div><div class="date">Eylül 2025</div></div>
+    <div class="cert"><div class="title">Audacity Programıyla Tanışalım</div><div class="org">Bilgeİş</div><div class="date">Eylül 2025</div></div>
+    <div class="cert"><div class="title">İngilizce Yeterlilik Belgesi — C1</div><div class="org">BAİBÜ</div><div class="date">Mart 2025 · 86.25 puan</div></div>
+    <div class="cert"><div class="title">C# Programlama</div><div class="org">BTK Akademi</div><div class="date">Mayıs 2025</div></div>
+    <div class="cert"><div class="title">Java Programlama</div><div class="org">BTK Akademi</div><div class="date">Mayıs 2025</div></div>
+    <div class="cert"><div class="title">Microsoft Excel Temelleri</div><div class="org">BTK Akademi</div><div class="date">Mayıs 2025</div></div>
+    <div class="cert"><div class="title">Microsoft Word Temelleri</div><div class="org">BTK Akademi</div><div class="date">Mayıs 2025</div></div>
+    <div class="cert"><div class="title">USP — İş Sağlığı ve Güvenliği</div><div class="org">T.C. Cumhurbaşkanlığı İKO</div><div class="date">Ekim 2023</div></div>
+  </div>
+</section>
+
+<section id="projeler" class="reveal">
+  <div class="eyebrow">Projeler &amp; Yayınlar</div>
+  <h2 class="section-title">Projeler &amp; Yayınlar</h2>
+  <div class="proj-grid">
+    <a class="proj" href="https://ilefbot.vercel.app" target="_blank" rel="noopener">
+      <span class="tag">Yapay Zeka</span>
+      <h3>İLEFBot</h3>
+      <p>Bolu Abant İzzet Baysal Üniversitesi İletişim Fakültesi için geliştirdiğim yapay zekâ projesi. Fakülte hakkındaki soruları yanıtlıyor.</p>
+      <span class="go">Projeyi gör →</span>
+    </a>
+    <a class="proj" href="https://open.spotify.com/intl-tr/artist/2BlTVMDj9GnFcdL9kGWNOf?si=sQF4J5UmRxGDNdtvlBTSRQ" target="_blank" rel="noopener">
+      <span class="tag">Müzik</span>
+      <h3>Spotify — M. Özçelik</h3>
+      <p>Tüm müzik çalışmalarımın olduğu sanatçı profili.</p>
+      <span class="go">Spotify'da dinle →</span>
+    </a>
+    <a class="proj" href="https://github.com/MOzcelik14" target="_blank" rel="noopener">
+      <span class="tag">Kod</span>
+      <h3>GitHub Profilim</h3>
+      <p>Yazılım projelerimi paylaştığım profil.</p>
+      <span class="go">GitHub'da gör →</span>
+    </a>
+  </div>
+
+  <div style="margin-top:1.2rem; border-radius:var(--radius); overflow:hidden;">
+    <iframe style="border-radius:2px;" src="https://open.spotify.com/embed/playlist/37i9dQZF1DZ06evO1uBWXZ?utm_source=generator" width="100%" height="352" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+  </div>
+</section>
+
+<footer id="iletisim">
+  <div class="eyebrow" style="justify-content:center;">İletişim</div>
+  <h2>İletişime geç</h2>
+  <p>Film, yazılım ya da ses konusunda bir proje varsa yazabilirsin.</p>
+  <div class="contact-links">
+    <a href="https://www.linkedin.com/in/murat-özçelik-398713292" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="https://github.com/MOzcelik14" target="_blank" rel="noopener">GitHub</a>
+    <a href="https://open.spotify.com/intl-tr/artist/2BlTVMDj9GnFcdL9kGWNOf?si=sQF4J5UmRxGDNdtvlBTSRQ" target="_blank" rel="noopener">Spotify</a>
+    <a href="https://instagram.com/muratozclik" target="_blank" rel="noopener">Instagram</a>
+  </div>
+  <div class="fine-print">© 2026 Murat Özçelik</div>
+</footer>
+
+<script>
+  // Monitor / clip preview interaction + playhead scrubbing (only moves on click)
+  const playhead = document.getElementById('playhead');
+  const tracksArea = document.querySelector('.tracks-area');
+
+  document.querySelectorAll('.clip').forEach(clip => {
+    clip.addEventListener('click', () => {
+      document.querySelectorAll('.clip').forEach(c => c.classList.remove('active'));
+      clip.classList.add('active');
+      document.getElementById('monitor-desc').textContent = clip.dataset.desc;
+
+      if (playhead && tracksArea) {
+        const areaRect = tracksArea.getBoundingClientRect();
+        const clipRect = clip.getBoundingClientRect();
+        const pct = ((clipRect.left + clipRect.width / 2) - areaRect.left) / areaRect.width * 100;
+        playhead.style.left = Math.max(0, Math.min(100, pct)) + '%';
+        playhead.classList.add('shown');
+      }
+    });
+  });
+
+  // Scroll reveal
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('in');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  revealEls.forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>
