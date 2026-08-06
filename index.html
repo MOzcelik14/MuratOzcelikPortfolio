@@ -104,7 +104,7 @@
   }
   @keyframes blink{ 0%,100%{opacity:1;} 50%{opacity:0.25;} }
   .nav-links{
-    display:flex; gap:1.5rem;
+    display:flex; gap:1.5rem; align-items:center;
     font-family:'JetBrains Mono', monospace;
     font-size:0.72rem;
     letter-spacing:0.06em;
@@ -116,7 +116,38 @@
     transition:color 0.2s, border-color 0.2s;
   }
   .nav-links a:hover{ color:var(--amber); border-color:var(--amber); }
-  @media (max-width:640px){ .nav-links{ display:none; } }
+  @media (max-width:768px){ .nav-links a{ display:none; } }
+
+  /* ---------- LANGUAGE SWITCHER ---------- */
+  .lang-switch {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    margin-left: 0.5rem;
+    border: 1px solid var(--line);
+    padding: 0.2rem 0.5rem;
+    border-radius: var(--radius);
+    background: var(--bg-alt);
+  }
+  .lang-btn {
+    background: none;
+    border: none;
+    color: var(--ink-dim);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 0.15rem 0.35rem;
+    border-radius: 2px;
+    transition: color 0.2s, background 0.2s;
+  }
+  .lang-btn:hover {
+    color: var(--ink);
+  }
+  .lang-btn.active {
+    color: #14171c;
+    background: var(--amber);
+  }
 
   /* ---------- HERO / CLAPPERBOARD ---------- */
   .hero{
@@ -544,14 +575,18 @@
   <div class="nav-inner">
     <div class="nav-mark"><span class="rec"></span> M. ÖZÇELİK</div>
     <div class="nav-links">
-      <a href="#hakkinda">Hakkında</a>
-      <a href="#filmler">Filmler</a>
-      <a href="#katildigim-calismalar">Katıldığım Çalışmalar</a>
-      <a href="#zaman-cizelgesi">Yetenekler</a>
-      <a href="#deneyim">Deneyim</a>
-      <a href="#egitim">Eğitim</a>
-      <a href="#projeler">Projeler</a>
-      <a href="#iletisim">İletişim</a>
+      <a href="#hakkinda" data-i18n="nav_about">Hakkında</a>
+      <a href="#filmler" data-i18n="nav_films">Filmler</a>
+      <a href="#katildigim-calismalar" data-i18n="nav_credits">Katıldığım Çalışmalar</a>
+      <a href="#zaman-cizelgesi" data-i18n="nav_skills">Yetenekler</a>
+      <a href="#deneyim" data-i18n="nav_exp">Deneyim</a>
+      <a href="#egitim" data-i18n="nav_edu">Eğitim</a>
+      <a href="#projeler" data-i18n="nav_projects">Projeler</a>
+      <a href="#iletisim" data-i18n="nav_contact">İletişim</a>
+      <div class="lang-switch">
+        <button class="lang-btn active" id="btn-tr" onclick="setLanguage('tr')">TR</button>
+        <button class="lang-btn" id="btn-en" onclick="setLanguage('en')">EN</button>
+      </div>
     </div>
   </div>
 </nav>
@@ -560,14 +595,14 @@
   <div class="slate">
     <div class="slate-stripes"></div>
     <div class="slate-body">
-      <div class="eyebrow">Portfolyo</div>
+      <div class="eyebrow" data-i18n="hero_eyebrow">Portfolyo</div>
       <h1 class="slate-title">Murat <em>Özçelik</em></h1>
-      <p class="slate-tag">Radyo, Televizyon ve Sinema öğrencisiyim. Yazılım, video kurgu ve ses prodüksiyonuyla uğraşıyorum.</p>
+      <p class="slate-tag" data-i18n="hero_tag">Radyo, Televizyon ve Sinema öğrencisiyim. Yazılım, video kurgu ve ses prodüksiyonuyla uğraşıyorum.</p>
       <div class="slate-fields">
-        <div class="slate-field"><span class="k">Doğum</span><span class="v">2004, İstanbul</span></div>
-        <div class="slate-field"><span class="k">Rol</span><span class="v">Yönetmen · Geliştirici</span></div>
-        <div class="slate-field"><span class="k">Bölüm</span><span class="v">Radyo, TV ve Sinema</span></div>
-        <div class="slate-field"><span class="k">Mahlas</span><span class="v">M. Özçelik</span></div>
+        <div class="slate-field"><span class="k" data-i18n="field_birth_k">Doğum</span><span class="v" data-i18n="field_birth_v">2004, İstanbul</span></div>
+        <div class="slate-field"><span class="k" data-i18n="field_role_k">Rol</span><span class="v" data-i18n="field_role_v">Yönetmen · Geliştirici</span></div>
+        <div class="slate-field"><span class="k" data-i18n="field_dept_k">Bölüm</span><span class="v" data-i18n="field_dept_v">Radyo, TV ve Sinema</span></div>
+        <div class="slate-field"><span class="k" data-i18n="field_alias_k">Mahlas</span><span class="v" data-i18n="field_alias_v">M. Özçelik</span></div>
       </div>
     </div>
     <div class="slate-stripes-bottom"></div>
@@ -575,25 +610,25 @@
 </header>
 
 <section id="hakkinda" class="reveal">
-  <div class="eyebrow">Hakkında</div>
-  <h2 class="section-title">Hakkında</h2>
+  <div class="eyebrow" data-i18n="nav_about">Hakkında</div>
+  <h2 class="section-title" data-i18n="nav_about">Hakkında</h2>
   <div class="about-grid">
-    <p class="about-lead">2004 İstanbul doğumluyum. Küçük yaşlardan beri teknoloji ve sanatla ilgileniyorum.</p>
+    <p class="about-lead" data-i18n="about_lead">2004 İstanbul doğumluyum. Küçük yaşlardan beri teknoloji ve sanatla ilgileniyorum.</p>
     <div class="about-body">
-      <p>Profilo Mesleki ve Teknik Anadolu Lisesi'nde Bilişim Teknolojileri / Veritabanı Programcılığı okudum. Sonra Bolu Abant İzzet Baysal Üniversitesi Radyo, Televizyon ve Sinema bölümüne başladım. Erasmus+ programıyla bir dönem Yunanistan'da İyonya Üniversitesi Görsel ve İşitsel Sanatlar Departmanı'nda okudum.</p>
-      <p>Yazılım tarafında C#, Java ve SQL kullanıyorum. Video kurguda Adobe Premiere, DaVinci Resolve ve Kdenlive; ses tarafında FL Studio, Ableton Live ve Audacity ile çalışıyorum. Kendi kısa filmlerimi yazıp yönetiyorum, müziklerini de kendim yapıyorum.</p>
+      <p data-i18n="about_p1">Profilo Mesleki ve Teknik Anadolu Lisesi'nde Bilişim Teknolojileri / Veritabanı Programcılığı okudum. Sonra Bolu Abant İzzet Baysal Üniversitesi Radyo, Televizyon ve Sinema bölümüne başladım. Erasmus+ programıyla bir dönem Yunanistan'da İyonya Üniversitesi Görsel ve İşitsel Sanatlar Departmanı'nda okudum.</p>
+      <p data-i18n="about_p2">Yazılım tarafında C#, Java ve SQL kullanıyorum. Video kurguda Adobe Premiere, DaVinci Resolve ve Kdenlive; ses tarafında FL Studio, Ableton Live ve Audacity ile çalışıyorum. Kendi kısa filmlerimi yazıp yönetiyorum, müziklerini de kendim yapıyorum.</p>
       <div class="alias-card">
-        <span class="k">M. Özçelik — müzik mahlası</span>
-        <p>Bu isimle beat, film müziği ve deneysel elektronik çalışmalar yapıyorum. TRT GİY ve Sabancı Vakfı Kısa Film Platformu'nda yer alan kısa film projelerinde görev aldım.</p>
+        <span class="k" data-i18n="alias_title">M. Özçelik — müzik mahlası</span>
+        <p data-i18n="alias_desc">Bu isimle beat, film müziği ve deneysel elektronik çalışmalar yapıyorum. TRT GİY ve Sabancı Vakfı Kısa Film Platformu'nda yer alan kısa film projelerinde görev aldım.</p>
       </div>
     </div>
   </div>
 </section>
 
 <section id="zaman-cizelgesi" class="reveal">
-  <div class="eyebrow">Yetenekler</div>
-  <h2 class="section-title">Yetenekler</h2>
-  <p style="color:var(--ink-dim); margin-top:-1.4rem; margin-bottom:2rem; font-size:0.95rem;">Bir öğeye dokun, altta açıklamasını gör.</p>
+  <div class="eyebrow" data-i18n="nav_skills">Yetenekler</div>
+  <h2 class="section-title" data-i18n="nav_skills">Yetenekler</h2>
+  <p style="color:var(--ink-dim); margin-top:-1.4rem; margin-bottom:2rem; font-size:0.95rem;" data-i18n="skills_hint">Bir öğeye dokun, altta açıklamasını gör.</p>
 
   <div class="timeline-wrap">
     <div class="tracks-area">
@@ -603,67 +638,67 @@
       </div>
 
       <div class="track track-video">
-        <div class="track-label"><b>V2</b> Görsel &amp; Film</div>
+        <div class="track-label"><b>V2</b> <span data-i18n="track_v2">Görsel &amp; Film</span></div>
         <div class="clips">
-          <button class="clip" data-title="Film Prodüksiyonu" data-desc="Kısa film yazıyor ve yönetiyorum. TRT GİY ve Sabancı Vakfı Kısa Film Platformu'nda yer alan projelerde görev aldım.">Film Prodüksiyonu</button>
-          <button class="clip" data-title="Kurgu" data-desc="DaVinci Resolve, Adobe Premiere ve Kdenlive kullanıyorum. Bilgeİş'ten sertifikam var.">Kurgu</button>
-          <button class="clip" data-title="Fotoğrafçılık" data-desc="Dijital fotoğrafçılık teknikleri üzerine Bilgeİş'ten sertifikam var.">Fotoğrafçılık</button>
+          <button class="clip" data-key="film_prod" data-title="Film Prodüksiyonu" data-desc="Kısa film yazıyor ve yönetiyorum. TRT GİY ve Sabancı Vakfı Kısa Film Platformu'nda yer alan projelerde görev aldım.">Film Prodüksiyonu</button>
+          <button class="clip" data-key="editing" data-title="Kurgu" data-desc="DaVinci Resolve, Adobe Premiere ve Kdenlive kullanıyorum. Bilgeİş'ten sertifikam var.">Kurgu</button>
+          <button class="clip" data-key="photo" data-title="Fotoğrafçılık" data-desc="Dijital fotoğrafçılık teknikleri üzerine Bilgeİş'ten sertifikam var.">Fotoğrafçılık</button>
         </div>
       </div>
 
       <div class="track track-code">
-        <div class="track-label"><b>V1</b> Yazılım</div>
+        <div class="track-label"><b>V1</b> <span data-i18n="track_v1">Yazılım</span></div>
         <div class="clips">
-          <button class="clip" data-title="C# Programlama" data-desc="BTK Akademi'den sertifikam var. WPF ile masaüstü arayüzleri de yapıyorum.">C#</button>
-          <button class="clip" data-title="Java Programlama" data-desc="Android uygulama geliştirmede kullanıyorum. BTK Akademi'den sertifikam var.">Java</button>
-          <button class="clip" data-title="SQL & Veritabanı" data-desc="Profilo MTAL'de veritabanı programcılığı okudum.">SQL</button>
-          <button class="clip" data-title="WPF" data-desc="Windows masaüstü uygulamaları için arayüz geliştiriyorum.">WPF</button>
+          <button class="clip" data-key="csharp" data-title="C# Programlama" data-desc="BTK Akademi'den sertifikam var. WPF ile masaüstü arayüzleri de yapıyorum.">C#</button>
+          <button class="clip" data-key="java" data-title="Java Programlama" data-desc="Android uygulama geliştirmede kullanıyorum. BTK Akademi'den sertifikam var.">Java</button>
+          <button class="clip" data-key="sql" data-title="SQL & Veritabanı" data-desc="Profilo MTAL'de veritabanı programcılığı okudum.">SQL</button>
+          <button class="clip" data-key="wpf" data-title="WPF" data-desc="Windows masaüstü uygulamaları için arayüz geliştiriyorum.">WPF</button>
         </div>
       </div>
 
       <div class="track track-audio">
-        <div class="track-label"><b>A1</b> Ses &amp; Müzik</div>
+        <div class="track-label"><b>A1</b> <span data-i18n="track_a1">Ses &amp; Müzik</span></div>
         <div class="clips">
-          <button class="clip" data-title="Ses Tasarımı" data-desc="Film ve proje sesleri için ses tasarımı yapıyorum.">Ses Tasarımı</button>
-          <button class="clip" data-title="Audacity" data-desc="Ses düzenleme için kullanıyorum. Bilgeİş'ten sertifikam var.">Audacity</button>
-          <button class="clip" data-title="FL Studio & Ableton" data-desc="M. Özçelik mahlasıyla beat, film müziği ve deneysel elektronik müzik yapıyorum.">FL Studio / Ableton</button>
+          <button class="clip" data-key="sound_design" data-title="Ses Tasarımı" data-desc="Film ve proje sesleri için ses tasarımı yapıyorum.">Ses Tasarımı</button>
+          <button class="clip" data-key="audacity" data-title="Audacity" data-desc="Ses düzenleme için kullanıyorum. Bilgeİş'ten sertifikam var.">Audacity</button>
+          <button class="clip" data-key="fl_studio" data-title="FL Studio & Ableton" data-desc="M. Özçelik mahlasıyla beat, film müziği ve deneysel elektronik müzik yapıyorum.">FL Studio / Ableton</button>
         </div>
       </div>
     </div>
 
     <div class="monitor">
-      <span class="k">Önizleme</span>
-      <p id="monitor-desc">Yukarıdaki öğelerden birine dokun, açıklaması burada görünsün.</p>
+      <span class="k" data-i18n="monitor_k">Önizleme</span>
+      <p id="monitor-desc" data-i18n="monitor_p">Yukarıdaki öğelerden birine dokun, açıklaması burada görünsün.</p>
     </div>
   </div>
 </section>
 
 <section id="filmler" class="reveal">
-  <div class="eyebrow">Filmler</div>
-  <h2 class="section-title">Filmler</h2>
+  <div class="eyebrow" data-i18n="nav_films">Filmler</div>
+  <h2 class="section-title" data-i18n="nav_films">Filmler</h2>
   <div class="proj-grid">
     <div class="proj" style="cursor:default;">
-      <span class="tag">Kısa Film</span>
-      <h3>Zamansız Yolculuk</h3>
-      <p>Yönetmenlik · Senaryo · Ses ve Müzik</p>
+      <span class="tag" data-i18n="short_film_tag">Kısa Film</span>
+      <h3 data-i18n="film_1_title">Zamansız Yolculuk</h3>
+      <p data-i18n="film_1_role">Yönetmenlik · Senaryo · Ses ve Müzik</p>
       <div class="video-embed" style="aspect-ratio:16/9; margin-top:0.4rem; border-radius:2px; overflow:hidden; position:relative;">
         <iframe id="yt-zamansiz" width="100%" height="100%" src="https://www.youtube.com/embed/FaE6MVLz2mk?enablejsapi=1&controls=0&modestbranding=1&rel=0&iv_load_policy=3&autoplay=1&mute=1&playlist=FaE6MVLz2mk&loop=1" title="zamansız yolculuk. - Kısa Film" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="display:block;"></iframe>
         <button class="yt-toggle playing" data-target="yt-zamansiz" aria-label="Oynat / Duraklat"></button>
       </div>
     </div>
     <div class="proj" style="cursor:default;">
-      <span class="tag">Kısa Film</span>
-      <h3>Gaia'nın Çığlığı</h3>
-      <p>Görüntü Yönetmenliği · Kurgu · Ses ve Müzik</p>
+      <span class="tag" data-i18n="short_film_tag">Kısa Film</span>
+      <h3 data-i18n="film_2_title">Gaia'nın Çığlığı</h3>
+      <p data-i18n="film_2_role">Görüntü Yönetmenliği · Kurgu · Ses ve Müzik</p>
       <div class="video-embed" style="aspect-ratio:16/9; margin-top:0.4rem; border-radius:2px; overflow:hidden; position:relative;">
         <iframe id="yt-gaia" width="100%" height="100%" src="https://www.youtube.com/embed/VOI6pa3I4jM?enablejsapi=1&controls=0&modestbranding=1&rel=0&iv_load_policy=3&autoplay=1&mute=1&playlist=VOI6pa3I4jM&loop=1" title="gaiaeng" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="display:block;"></iframe>
         <button class="yt-toggle playing" data-target="yt-gaia" aria-label="Oynat / Duraklat"></button>
       </div>
     </div>
     <div class="proj" style="cursor:default;">
-      <span class="tag">Kısa Film</span>
+      <span class="tag" data-i18n="short_film_tag">Kısa Film</span>
       <h3>DISTANT</h3>
-      <p>Yönetmenlik · Görüntü Yönetmenliği · Kurgu · Ses</p>
+      <p data-i18n="film_3_role">Yönetmenlik · Görüntü Yönetmenliği · Kurgu · Ses</p>
       <div class="video-embed" style="aspect-ratio:16/9; margin-top:0.4rem; border-radius:2px; overflow:hidden; position:relative;">
         <iframe id="yt-distant" width="100%" height="100%" src="https://www.youtube.com/embed/tJGxSjigk_o?enablejsapi=1&controls=0&modestbranding=1&rel=0&iv_load_policy=3&autoplay=1&mute=1&playlist=tJGxSjigk_o&loop=1" title="DISTANT - Short Film" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="display:block;"></iframe>
         <button class="yt-toggle playing" data-target="yt-distant" aria-label="Oynat / Duraklat"></button>
@@ -673,107 +708,107 @@
 </section>
 
 <section id="katildigim-calismalar" class="reveal">
-  <div class="eyebrow">Katıldığım Çalışmalar</div>
-  <h2 class="section-title">Katıldığım Çalışmalar</h2>
+  <div class="eyebrow" data-i18n="nav_credits">Katıldığım Çalışmalar</div>
+  <h2 class="section-title" data-i18n="nav_credits">Katıldığım Çalışmalar</h2>
   <ul class="credits-list">
     <li>
-      <span class="role">Ses &amp; Müzik — "Yeniden Yeşer"</span>
-      <span class="org">Sabancı Vakfı Yeşil Vatan Kısa Film Yarışması</span>
+      <span class="role" data-i18n="credit_1_role">Ses &amp; Müzik — "Yeniden Yeşer"</span>
+      <span class="org" data-i18n="credit_1_org">Sabancı Vakfı Yeşil Vatan Kısa Film Yarışması</span>
       <span class="when">2025</span>
     </li>
     <li>
-      <span class="role">Ses &amp; Müzik — "Büyük Kavuşma"</span>
-      <span class="org">TRT Geleceğin İletişimcileri Yarışması</span>
+      <span class="role" data-i18n="credit_2_role">Ses &amp; Müzik — "Büyük Kavuşma"</span>
+      <span class="org" data-i18n="credit_2_org">TRT Geleceğin İletişimcileri Yarışması</span>
       <span class="when">2024</span>
     </li>
   </ul>
 </section>
 
 <section id="deneyim" class="reveal">
-  <div class="eyebrow">Deneyim</div>
-  <h2 class="section-title">Deneyim</h2>
+  <div class="eyebrow" data-i18n="nav_exp">Deneyim</div>
+  <h2 class="section-title" data-i18n="nav_exp">Deneyim</h2>
   <ul class="credits-list">
     <li>
-      <span class="role">Başkan Yardımcısı</span>
-      <span class="org">BAİBÜ Yedinci Sanat Topluluğu</span>
-      <span class="when">Kas 2025 — Devam ediyor</span>
+      <span class="role" data-i18n="exp_role">Başkan Yardımcısı</span>
+      <span class="org" data-i18n="exp_org">BAİBÜ Yedinci Sanat Topluluğu</span>
+      <span class="when" data-i18n="exp_when">Kas 2025 — Devam ediyor</span>
     </li>
   </ul>
 </section>
 
 <section id="egitim" class="reveal">
-  <div class="eyebrow">Eğitim</div>
-  <h2 class="section-title">Eğitim</h2>
+  <div class="eyebrow" data-i18n="nav_edu">Eğitim</div>
+  <h2 class="section-title" data-i18n="nav_edu">Eğitim</h2>
 
   <div class="edu-item">
     <div>
-      <h3>Bolu Abant İzzet Baysal Üniversitesi</h3>
-      <div class="field">Lisans Derecesi, Radyo, Televizyon ve Sinema</div>
+      <h3 data-i18n="edu_1_school">Bolu Abant İzzet Baysal Üniversitesi</h3>
+      <div class="field" data-i18n="edu_1_field">Lisans Derecesi, Radyo, Televizyon ve Sinema</div>
     </div>
-    <div class="when">Eki 2023 — Devam ediyor</div>
+    <div class="when" data-i18n="edu_1_when">Eki 2023 — Devam ediyor</div>
   </div>
 
   <div class="edu-item">
     <div>
-      <h3>Ionian University <span style="color:var(--ink-faint); font-weight:400; font-size:0.9rem;">(Yunanistan)</span></h3>
-      <div class="field">Görsel ve İşitsel Sanatlar — Erasmus+ Öğrenci Değişim Programı</div>
-      <div class="note">Ortalama: 8.68</div>
+      <h3>Ionian University <span style="color:var(--ink-faint); font-weight:400; font-size:0.9rem;" data-i18n="edu_2_country">(Yunanistan)</span></h3>
+      <div class="field" data-i18n="edu_2_field">Görsel ve İşitsel Sanatlar — Erasmus+ Öğrenci Değişim Programı</div>
+      <div class="note" data-i18n="edu_2_note">Ortalama: 8.68</div>
     </div>
-    <div class="when">Eyl 2025 — Şub 2026</div>
+    <div class="when" data-i18n="edu_2_when">Eyl 2025 — Şub 2026</div>
   </div>
 
   <div class="edu-item">
     <div>
-      <h3>Profilo Mesleki ve Teknik Anadolu Lisesi</h3>
-      <div class="field">Bilişim Teknolojileri / Veritabanı Programcılığı</div>
+      <h3 data-i18n="edu_3_school">Profilo Mesleki ve Teknik Anadolu Lisesi</h3>
+      <div class="field" data-i18n="edu_3_field">Bilişim Teknolojileri / Veritabanı Programcılığı</div>
     </div>
-    <div class="when">Eyl 2018 — Haz 2022</div>
+    <div class="when" data-i18n="edu_3_when">Eyl 2018 — Haz 2022</div>
   </div>
 
   <div class="lang-row">
-    <div class="lang"><b>Türkçe</b><span>Ana dil</span></div>
-    <div class="lang"><b>İngilizce</b><span>C1 — Profesyonel yeterlilik</span></div>
+    <div class="lang"><b data-i18n="lang_tr">Türkçe</b><span data-i18n="lang_tr_val">Ana dil</span></div>
+    <div class="lang"><b data-i18n="lang_en">İngilizce</b><span data-i18n="lang_en_val">C1 — Profesyonel yeterlilik</span></div>
   </div>
 </section>
 
 <section id="sertifikalar" class="reveal">
-  <div class="eyebrow">Sertifikalar</div>
-  <h2 class="section-title">Sertifikalar</h2>
+  <div class="eyebrow" data-i18n="nav_certs">Sertifikalar</div>
+  <h2 class="section-title" data-i18n="nav_certs">Sertifikalar</h2>
   <div class="cert-grid">
-    <div class="cert"><div class="title">DaVinci Resolve ile Video Kurgulama</div><div class="org">Bilgeİş</div><div class="date">Eylül 2025</div></div>
-    <div class="cert"><div class="title">Fotoğrafçılık Teknikleri</div><div class="org">Bilgeİş</div><div class="date">Eylül 2025</div></div>
-    <div class="cert"><div class="title">Temel Elektronik</div><div class="org">Bilgeİş</div><div class="date">Eylül 2025</div></div>
-    <div class="cert"><div class="title">Audacity Programıyla Tanışalım</div><div class="org">Bilgeİş</div><div class="date">Eylül 2025</div></div>
-    <div class="cert"><div class="title">İngilizce Yeterlilik Belgesi — C1</div><div class="org">BAİBÜ</div><div class="date">Mart 2025 · 86.25 puan</div></div>
-    <div class="cert"><div class="title">C# Programlama</div><div class="org">BTK Akademi</div><div class="date">Mayıs 2025</div></div>
-    <div class="cert"><div class="title">Java Programlama</div><div class="org">BTK Akademi</div><div class="date">Mayıs 2025</div></div>
-    <div class="cert"><div class="title">Microsoft Excel Temelleri</div><div class="org">BTK Akademi</div><div class="date">Mayıs 2025</div></div>
-    <div class="cert"><div class="title">Microsoft Word Temelleri</div><div class="org">BTK Akademi</div><div class="date">Mayıs 2025</div></div>
-    <div class="cert"><div class="title">USP — İş Sağlığı ve Güvenliği</div><div class="org">T.C. Cumhurbaşkanlığı İKO</div><div class="date">Ekim 2023</div></div>
+    <div class="cert"><div class="title" data-i18n="cert_1">DaVinci Resolve ile Video Kurgulama</div><div class="org">Bilgeİş</div><div class="date" data-i18n="cert_date_sep25">Eylül 2025</div></div>
+    <div class="cert"><div class="title" data-i18n="cert_2">Fotoğrafçılık Teknikleri</div><div class="org">Bilgeİş</div><div class="date" data-i18n="cert_date_sep25">Eylül 2025</div></div>
+    <div class="cert"><div class="title" data-i18n="cert_3">Temel Elektronik</div><div class="org">Bilgeİş</div><div class="date" data-i18n="cert_date_sep25">Eylül 2025</div></div>
+    <div class="cert"><div class="title" data-i18n="cert_4">Audacity Programıyla Tanışalım</div><div class="org">Bilgeİş</div><div class="date" data-i18n="cert_date_sep25">Eylül 2025</div></div>
+    <div class="cert"><div class="title" data-i18n="cert_5">İngilizce Yeterlilik Belgesi — C1</div><div class="org">BAİBÜ</div><div class="date" data-i18n="cert_5_date">Mart 2025 · 86.25 puan</div></div>
+    <div class="cert"><div class="title" data-i18n="cert_6">C# Programlama</div><div class="org">BTK Akademi</div><div class="date" data-i18n="cert_date_may25">Mayıs 2025</div></div>
+    <div class="cert"><div class="title" data-i18n="cert_7">Java Programlama</div><div class="org">BTK Akademi</div><div class="date" data-i18n="cert_date_may25">Mayıs 2025</div></div>
+    <div class="cert"><div class="title" data-i18n="cert_8">Microsoft Excel Temelleri</div><div class="org">BTK Akademi</div><div class="date" data-i18n="cert_date_may25">Mayıs 2025</div></div>
+    <div class="cert"><div class="title" data-i18n="cert_9">Microsoft Word Temelleri</div><div class="org">BTK Akademi</div><div class="date" data-i18n="cert_date_may25">Mayıs 2025</div></div>
+    <div class="cert"><div class="title" data-i18n="cert_10">USP — İş Sağlığı ve Güvenliği</div><div class="org">T.C. Cumhurbaşkanlığı İKO</div><div class="date" data-i18n="cert_10_date">Ekim 2023</div></div>
   </div>
 </section>
 
 <section id="projeler" class="reveal">
-  <div class="eyebrow">Projeler &amp; Yayınlar</div>
-  <h2 class="section-title">Projeler &amp; Yayınlar</h2>
+  <div class="eyebrow" data-i18n="nav_projects">Projeler &amp; Yayınlar</div>
+  <h2 class="section-title" data-i18n="nav_projects">Projeler &amp; Yayınlar</h2>
   <div class="proj-grid">
     <a class="proj" href="https://ilefbot.vercel.app" target="_blank" rel="noopener">
-      <span class="tag">Yapay Zeka</span>
+      <span class="tag" data-i18n="proj_tag_ai">Yapay Zeka</span>
       <h3>İLEFBot</h3>
-      <p>Bolu Abant İzzet Baysal Üniversitesi İletişim Fakültesi için geliştirdiğim yapay zekâ projesi. Fakülte hakkındaki soruları yanıtlıyor.</p>
-      <span class="go">Projeyi gör →</span>
+      <p data-i18n="proj_1_desc">Bolu Abant İzzet Baysal Üniversitesi İletişim Fakültesi için geliştirdiğim yapay zekâ projesi. Fakülte hakkındaki soruları yanıtlıyor.</p>
+      <span class="go" data-i18n="proj_1_link">Projeyi gör →</span>
     </a>
     <a class="proj" href="https://open.spotify.com/intl-tr/artist/2BlTVMDj9GnFcdL9kGWNOf?si=sQF4J5UmRxGDNdtvlBTSRQ" target="_blank" rel="noopener">
-      <span class="tag">Müzik</span>
+      <span class="tag" data-i18n="proj_tag_music">Müzik</span>
       <h3>Spotify — M. Özçelik</h3>
-      <p>Tüm müzik çalışmalarımın olduğu sanatçı profili.</p>
-      <span class="go">Spotify'da dinle →</span>
+      <p data-i18n="proj_2_desc">Tüm müzik çalışmalarımın olduğu sanatçı profili.</p>
+      <span class="go" data-i18n="proj_2_link">Spotify'da dinle →</span>
     </a>
     <a class="proj" href="https://github.com/MOzcelik14" target="_blank" rel="noopener">
-      <span class="tag">Kod</span>
-      <h3>GitHub Profilim</h3>
-      <p>Yazılım projelerimi paylaştığım profil.</p>
-      <span class="go">GitHub'da gör →</span>
+      <span class="tag" data-i18n="proj_tag_code">Kod</span>
+      <h3 data-i18n="proj_3_title">GitHub Profilim</h3>
+      <p data-i18n="proj_3_desc">Yazılım projelerimi paylaştığım profil.</p>
+      <span class="go" data-i18n="proj_3_link">GitHub'da gör →</span>
     </a>
   </div>
 
@@ -783,9 +818,9 @@
 </section>
 
 <footer id="iletisim">
-  <div class="eyebrow" style="justify-content:center;">İletişim</div>
-  <h2>İletişime geç</h2>
-  <p>Film, yazılım ya da ses konusunda bir proje varsa yazabilirsin.</p>
+  <div class="eyebrow" style="justify-content:center;" data-i18n="nav_contact">İletişim</div>
+  <h2 data-i18n="contact_title">İletişime geç</h2>
+  <p data-i18n="contact_desc">Film, yazılım ya da ses konusunda bir proje varsa yazabilirsin.</p>
   <div class="contact-links">
     <a href="https://www.linkedin.com/in/murat-özçelik-398713292" target="_blank" rel="noopener">LinkedIn</a>
     <a href="https://github.com/MOzcelik14" target="_blank" rel="noopener">GitHub</a>
@@ -796,6 +831,240 @@
 </footer>
 
 <script>
+  // ---------- TRANSLATION DICTIONARY & LOGIC ----------
+  const translations = {
+    tr: {
+      nav_about: "Hakkında",
+      nav_films: "Filmler",
+      nav_credits: "Katıldığım Çalışmalar",
+      nav_skills: "Yetenekler",
+      nav_exp: "Deneyim",
+      nav_edu: "Eğitim",
+      nav_certs: "Sertifikalar",
+      nav_projects: "Projeler & Yayınlar",
+      nav_contact: "İletişim",
+      hero_eyebrow: "Portfolyo",
+      hero_tag: "Radyo, Televizyon ve Sinema öğrencisiyim. Yazılım, video kurgu ve ses prodüksiyonuyla uğraşıyorum.",
+      field_birth_k: "Doğum",
+      field_birth_v: "2004, İstanbul",
+      field_role_k: "Rol",
+      field_role_v: "Yönetmen · Geliştirici",
+      field_dept_k: "Bölüm",
+      field_dept_v: "Radyo, TV ve Sinema",
+      field_alias_k: "Mahlas",
+      field_alias_v: "M. Özçelik",
+      about_lead: "2004 İstanbul doğumluyum. Küçük yaşlardan beri teknoloji ve sanatla ilgileniyorum.",
+      about_p1: "Profilo Mesleki ve Teknik Anadolu Lisesi'nde Bilişim Teknolojileri / Veritabanı Programcılığı okudum. Sonra Bolu Abant İzzet Baysal Üniversitesi Radyo, Televizyon ve Sinema bölümüne başladım. Erasmus+ programıyla bir dönem Yunanistan'da İyonya Üniversitesi Görsel ve İşitsel Sanatlar Departmanı'nda okudum.",
+      about_p2: "Yazılım tarafında C#, Java ve SQL kullanıyorum. Video kurguda Adobe Premiere, DaVinci Resolve ve Kdenlive; ses tarafında FL Studio, Ableton Live ve Audacity ile çalışıyorum. Kendi kısa filmlerimi yazıp yönetiyorum, müziklerini de kendim yapıyorum.",
+      alias_title: "M. Özçelik — müzik mahlası",
+      alias_desc: "Bu isimle beat, film müziği ve deneysel elektronik çalışmalar yapıyorum. TRT GİY ve Sabancı Vakfı Kısa Film Platformu'nda yer alan kısa film projelerinde görev aldım.",
+      skills_hint: "Bir öğeye dokun, altta açıklamasını gör.",
+      track_v2: "Görsel & Film",
+      track_v1: "Yazılım",
+      track_a1: "Ses & Müzik",
+      monitor_k: "Önizleme",
+      monitor_p: "Yukarıdaki öğelerden birine dokun, açıklaması burada görünsün.",
+      short_film_tag: "Kısa Film",
+      film_1_title: "Zamansız Yolculuk",
+      film_1_role: "Yönetmenlik · Senaryo · Ses ve Müzik",
+      film_2_title: "Gaia'nın Çığlığı",
+      film_2_role: "Görüntü Yönetmenliği · Kurgu · Ses ve Müzik",
+      film_3_role: "Yönetmenlik · Görüntü Yönetmenliği · Kurgu · Ses",
+      credit_1_role: "Ses & Müzik — \"Yeniden Yeşer\"",
+      credit_1_org: "Sabancı Vakfı Yeşil Vatan Kısa Film Yarışması",
+      credit_2_role: "Ses & Müzik — \"Büyük Kavuşma\"",
+      credit_2_org: "TRT Geleceğin İletişimcileri Yarışması",
+      exp_role: "Başkan Yardımcısı",
+      exp_org: "BAİBÜ Yedinci Sanat Topluluğu",
+      exp_when: "Kas 2025 — Devam ediyor",
+      edu_1_school: "Bolu Abant İzzet Baysal Üniversitesi",
+      edu_1_field: "Lisans Derecesi, Radyo, Televizyon ve Sinema",
+      edu_1_when: "Eki 2023 — Devam ediyor",
+      edu_2_country: "(Yunanistan)",
+      edu_2_field: "Görsel ve İşitsel Sanatlar — Erasmus+ Öğrenci Değişim Programı",
+      edu_2_note: "Ortalama: 8.68",
+      edu_2_when: "Eyl 2025 — Şub 2026",
+      edu_3_school: "Profilo Mesleki ve Teknik Anadolu Lisesi",
+      edu_3_field: "Bilişim Teknolojileri / Veritabanı Programcılığı",
+      edu_3_when: "Eyl 2018 — Haz 2022",
+      lang_tr: "Türkçe",
+      lang_tr_val: "Ana dil",
+      lang_en: "İngilizce",
+      lang_en_val: "C1 — Profesyonel yeterlilik",
+      cert_1: "DaVinci Resolve ile Video Kurgulama",
+      cert_2: "Fotoğrafçılık Teknikleri",
+      cert_3: "Temel Elektronik",
+      cert_4: "Audacity Programıyla Tanışalım",
+      cert_5: "İngilizce Yeterlilik Belgesi — C1",
+      cert_5_date: "Mart 2025 · 86.25 puan",
+      cert_6: "C# Programlama",
+      cert_7: "Java Programlama",
+      cert_8: "Microsoft Excel Temelleri",
+      cert_9: "Microsoft Word Temelleri",
+      cert_10: "USP — İş Sağlığı ve Güvenliği",
+      cert_10_date: "Ekim 2023",
+      cert_date_sep25: "Eylül 2025",
+      cert_date_may25: "Mayıs 2025",
+      proj_tag_ai: "Yapay Zeka",
+      proj_tag_music: "Müzik",
+      proj_tag_code: "Kod",
+      proj_1_desc: "Bolu Abant İzzet Baysal Üniversitesi İletişim Fakültesi için geliştirdiğim yapay zekâ projesi. Fakülte hakkındaki soruları yanıtlıyor.",
+      proj_1_link: "Projeyi gör →",
+      proj_2_desc: "Tüm müzik çalışmalarımın olduğu sanatçı profili.",
+      proj_2_link: "Spotify'da dinle →",
+      proj_3_title: "GitHub Profilim",
+      proj_3_desc: "Yazılım projelerimi paylaştığım profil.",
+      proj_3_link: "GitHub'da gör →",
+      contact_title: "İletişime geç",
+      contact_desc: "Film, yazılım ya da ses konusunda bir proje varsa yazabilirsin.",
+      clips: {
+        film_prod: { title: "Film Prodüksiyonu", desc: "Kısa film yazıyor ve yönetiyorum. TRT GİY ve Sabancı Vakfı Kısa Film Platformu'nda yer alan projelerde görev aldım." },
+        editing: { title: "Kurgu", desc: "DaVinci Resolve, Adobe Premiere ve Kdenlive kullanıyorum. Bilgeİş'ten sertifikam var." },
+        photo: { title: "Fotoğrafçılık", desc: "Dijital fotoğrafçılık teknikleri üzerine Bilgeİş'ten sertifikam var." },
+        csharp: { title: "C# Programlama", desc: "BTK Akademi'den sertifikam var. WPF ile masaüstü arayüzleri de yapıyorum." },
+        java: { title: "Java Programlama", desc: "Android uygulama geliştirmede kullanıyorum. BTK Akademi'den sertifikam var." },
+        sql: { title: "SQL & Veritabanı", desc: "Profilo MTAL'de veritabanı programcılığı okudum." },
+        wpf: { title: "WPF", desc: "Windows masaüstü uygulamaları için arayüz geliştiriyorum." },
+        sound_design: { title: "Ses Tasarımı", desc: "Film ve proje sesleri için ses tasarımı yapıyorum." },
+        audacity: { title: "Audacity", desc: "Ses düzenleme için kullanıyorum. Bilgeİş'ten sertifikam var." },
+        fl_studio: { title: "FL Studio & Ableton", desc: "M. Özçelik mahlasıyla beat, film müziği ve deneysel elektronik müzik yapıyorum." }
+      }
+    },
+    en: {
+      nav_about: "About",
+      nav_films: "Films",
+      nav_credits: "Credits",
+      nav_skills: "Skills",
+      nav_exp: "Experience",
+      nav_edu: "Education",
+      nav_certs: "Certifications",
+      nav_projects: "Projects & Releases",
+      nav_contact: "Contact",
+      hero_eyebrow: "Portfolio",
+      hero_tag: "Radio, TV, and Cinema student. Working across software development, video editing, and audio production.",
+      field_birth_k: "Born",
+      field_birth_v: "2004, Istanbul",
+      field_role_k: "Role",
+      field_role_v: "Director · Developer",
+      field_dept_k: "Department",
+      field_dept_v: "Radio, TV & Cinema",
+      field_alias_k: "Moniker",
+      field_alias_v: "M. Özçelik",
+      about_lead: "Born in Istanbul in 2004. Passionate about technology and art from an early age.",
+      about_p1: "I studied Information Technologies / Database Programming at Profilo Vocational and Technical Anatolian High School. Later, I enrolled in Radio, Television, and Cinema at Bolu Abant İzzet Baysal University. Through the Erasmus+ program, I spent a semester studying at the Department of Audio & Visual Arts at Ionian University in Greece.",
+      about_p2: "In software development, I work with C#, Java, and SQL. For video editing, I use Adobe Premiere, DaVinci Resolve, and Kdenlive; for audio production, FL Studio, Ableton Live, and Audacity. I write and direct my own short films and produce original musical scores for them.",
+      alias_title: "M. Özçelik — musical moniker",
+      alias_desc: "Under this alias, I produce beats, film scores, and experimental electronic music. I have contributed to short film projects featured on TRT GİY and Sabancı Foundation Short Film Platform.",
+      skills_hint: "Click an item to see its details below.",
+      track_v2: "Visual & Film",
+      track_v1: "Software",
+      track_a1: "Audio & Music",
+      monitor_k: "Preview",
+      monitor_p: "Select an item above to view its description here.",
+      short_film_tag: "Short Film",
+      film_1_title: "Timeless Journey",
+      film_1_role: "Director · Screenplay · Audio & Music",
+      film_2_title: "Gaia's Cry",
+      film_2_role: "Director of Photography · Editing · Audio & Music",
+      film_3_role: "Director · DOP · Editing · Sound",
+      credit_1_role: "Sound & Music — \"Yeniden Yeşer\"",
+      credit_1_org: "Sabancı Foundation Green Homeland Short Film Contest",
+      credit_2_role: "Sound & Music — \"Büyük Kavuşma\"",
+      credit_2_org: "TRT Future Communicators Competition",
+      exp_role: "Vice President",
+      exp_org: "BAIBU Seventh Art Community",
+      exp_when: "Nov 2025 — Present",
+      edu_1_school: "Bolu Abant İzzet Baysal University",
+      edu_1_field: "Bachelor's Degree, Radio, Television, and Cinema",
+      edu_1_when: "Oct 2023 — Present",
+      edu_2_country: "(Greece)",
+      edu_2_field: "Audio and Visual Arts — Erasmus+ Student Exchange Program",
+      edu_2_note: "GPA: 8.68",
+      edu_2_when: "Sep 2025 — Feb 2026",
+      edu_3_school: "Profilo Vocational and Technical Anatolian High School",
+      edu_3_field: "Information Technologies / Database Programming",
+      edu_3_when: "Sep 2018 — Jun 2022",
+      lang_tr: "Turkish",
+      lang_tr_val: "Native",
+      lang_en: "English",
+      lang_en_val: "C1 — Professional proficiency",
+      cert_1: "Video Editing with DaVinci Resolve",
+      cert_2: "Photography Techniques",
+      cert_3: "Basic Electronics",
+      cert_4: "Introduction to Audacity",
+      cert_5: "English Proficiency Certificate — C1",
+      cert_5_date: "March 2025 · Score: 86.25",
+      cert_6: "C# Programming",
+      cert_7: "Java Programming",
+      cert_8: "Microsoft Excel Fundamentals",
+      cert_9: "Microsoft Word Fundamentals",
+      cert_10: "USP — Occupational Health & Safety",
+      cert_10_date: "October 2023",
+      cert_date_sep25: "September 2025",
+      cert_date_may25: "May 2025",
+      proj_tag_ai: "Artificial Intelligence",
+      proj_tag_music: "Music",
+      proj_tag_code: "Code",
+      proj_1_desc: "An AI assistant developed for the Faculty of Communication at Bolu Abant İzzet Baysal University. It answers inquiries regarding the faculty.",
+      proj_1_link: "View project →",
+      proj_2_desc: "My artist profile showcasing all my musical releases and productions.",
+      proj_2_link: "Listen on Spotify →",
+      proj_3_title: "GitHub Profile",
+      proj_3_desc: "My profile where I share software development projects and repositories.",
+      proj_3_link: "View on GitHub →",
+      contact_title: "Get in touch",
+      contact_desc: "Feel free to reach out if you have a project in film, software, or audio production.",
+      clips: {
+        film_prod: { title: "Film Production", desc: "I write and direct short films. Worked on projects featured on TRT GİY and Sabancı Foundation Short Film Platform." },
+        editing: { title: "Video Editing", desc: "Experienced in DaVinci Resolve, Adobe Premiere, and Kdenlive. Certified by Bilgeİş." },
+        photo: { title: "Photography", desc: "Certified by Bilgeİş on digital photography techniques." },
+        csharp: { title: "C# Programming", desc: "Certified by BTK Akademi. I also develop desktop interfaces using WPF." },
+        java: { title: "Java Programming", desc: "Used for Android mobile app development. Certified by BTK Akademi." },
+        sql: { title: "SQL & Databases", desc: "Studied database programming at Profilo Vocational High School." },
+        wpf: { title: "WPF", desc: "Developing graphical user interfaces for Windows desktop applications." },
+        sound_design: { title: "Sound Design", desc: "Creating sound design and atmospheres for short films and visual projects." },
+        audacity: { title: "Audacity", desc: "Used for audio editing and post-processing. Certified by Bilgeİş." },
+        fl_studio: { title: "FL Studio & Ableton", desc: "Producing beats, film scores, and experimental electronic music under the M. Özçelik alias." }
+      }
+    }
+  };
+
+  let currentLang = localStorage.getItem('site_lang') || 'tr';
+
+  function setLanguage(lang) {
+    currentLang = lang;
+    localStorage.setItem('site_lang', lang);
+    document.documentElement.lang = lang;
+
+    // Toggle button active states
+    document.getElementById('btn-tr').classList.toggle('active', lang === 'tr');
+    document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+
+    // Update simple text translations
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const key = el.getAttribute('data-i18n');
+      if (translations[lang][key]) {
+        el.textContent = translations[lang][key];
+      }
+    });
+
+    // Update clip items
+    document.querySelectorAll('.clip').forEach(clip => {
+      const clipKey = clip.getAttribute('data-key');
+      if (clipKey && translations[lang].clips[clipKey]) {
+        const clipData = translations[lang].clips[clipKey];
+        clip.textContent = clipData.title;
+        clip.dataset.title = clipData.title;
+        clip.dataset.desc = clipData.desc;
+
+        // Refresh monitor preview if clip is currently active
+        if (clip.classList.contains('active')) {
+          document.getElementById('monitor-desc').textContent = clipData.desc;
+        }
+      }
+    });
+  }
+
   // Monitor / clip preview interaction + playhead scrubbing (only moves on click)
   const playhead = document.getElementById('playhead');
   const tracksArea = document.querySelector('.tracks-area');
@@ -840,6 +1109,9 @@
       btn.classList.toggle('playing', playing);
     });
   });
+
+  // Initialize language on page load
+  setLanguage(currentLang);
 </script>
 
 </body>
