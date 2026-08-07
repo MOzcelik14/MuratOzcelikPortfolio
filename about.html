@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Murat Özçelik — Hakkımda & Vizyon</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,500;1,9..144,600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#14171c;
+    --bg-alt:#1b1f26;
+    --bg-raised:#20242c;
+    --paper:#ede6d8;
+    --ink:#ede6d8;
+    --ink-dim:#9aa1ac;
+    --ink-faint:#666e7a;
+    --amber:#e8a33d;
+    --teal:#5fa8a0;
+    --crimson:#c1443c;
+    --line: rgba(237,230,216,0.12);
+    --radius: 3px;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:
+      radial-gradient(ellipse 1000px 600px at 15% -5%, rgba(232,163,61,0.20), transparent 60%),
+      radial-gradient(ellipse 900px 700px at 100% 25%, rgba(95,168,160,0.16), transparent 55%),
+      radial-gradient(ellipse 800px 600px at 5% 75%, rgba(193,68,60,0.13), transparent 55%),
+      var(--bg);
+    background-attachment:fixed;
+    color:var(--ink);
+    font-family:'Inter', sans-serif;
+    line-height:1.8;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  ::selection{ background:var(--amber); color:#14171c; }
+
+  a{color:inherit;}
+  h1,h2,h3{
+    font-family:'Fraunces', serif;
+    margin:0;
+    font-weight:600;
+  }
+
+  .eyebrow{
+    font-family:'JetBrains Mono', monospace;
+    font-size:0.72rem;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--amber);
+    display:flex;
+    align-items:center;
+    gap:0.6em;
+    margin-bottom:1.1rem;
+  }
+  .eyebrow::before{
+    content:"";
+    width:7px;height:7px;border-radius:50%;
+    background:var(--crimson);
+    box-shadow:0 0 0 3px rgba(193,68,60,0.18);
+  }
+
+  /* ---------- NAV ---------- */
+  nav{
+    position:sticky; top:0; z-index:50;
+    background:rgba(20,23,28,0.88);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{
+    max-width:820px; margin:0 auto;
+    padding:0.9rem 1.5rem;
+    display:flex; align-items:center; justify-content:space-between;
+  }
+  .nav-mark{
+    font-family:'JetBrains Mono', monospace;
+    font-weight:700; font-size:0.95rem;
+    letter-spacing:0.02em;
+    display:flex; align-items:center; gap:0.5rem;
+    text-decoration:none;
+  }
+  .nav-mark .rec{
+    width:8px;height:8px;border-radius:50%;
+    background:var(--crimson);
+  }
+  .back-btn{
+    font-family:'JetBrains Mono', monospace;
+    font-size:0.75rem;
+    color:var(--ink-dim);
+    text-decoration:none;
+    display:inline-flex;
+    align-items:center;
+    gap:0.4rem;
+    border:1px solid var(--line);
+    padding:0.4rem 0.8rem;
+    border-radius:var(--radius);
+    background:var(--bg-alt);
+    transition:border-color 0.2s, color 0.2s;
+  }
+  .back-btn:hover{
+    border-color:var(--amber);
+    color:var(--ink);
+  }
+
+  /* ---------- LANGUAGE SWITCHER ---------- */
+  .lang-switch {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    border: 1px solid var(--line);
+    padding: 0.2rem 0.5rem;
+    border-radius: var(--radius);
+    background: var(--bg-alt);
+  }
+  .lang-btn {
+    background: none;
+    border: none;
+    color: var(--ink-dim);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 0.15rem 0.35rem;
+    border-radius: 2px;
+    transition: color 0.2s, background 0.2s;
+  }
+  .lang-btn:hover { color: var(--ink); }
+  .lang-btn.active {
+    color: #14171c;
+    background: var(--amber);
+  }
+
+  /* ---------- ARTICLE WRAPPER ---------- */
+  main{
+    max-width:820px;
+    margin:0 auto;
+    padding:4.5rem 1.5rem 6rem;
+  }
+  .hero-title{
+    font-size:clamp(2.4rem, 6vw, 3.8rem);
+    line-height:1.15;
+    margin-bottom:1.5rem;
+  }
+  .hero-title em{
+    font-style:italic;
+    background:linear-gradient(100deg, var(--amber) 10%, #f2c675 45%, var(--crimson) 90%);
+    -webkit-background-clip:text;
+    background-clip:text;
+    -webkit-text-fill-color:transparent;
+  }
+  .intro-quote{
+    font-family:'Fraunces', serif;
+    font-size:1.35rem;
+    font-style:italic;
+    color:var(--paper);
+    line-height:1.6;
+    margin-bottom:3rem;
+    border-left:3px solid var(--amber);
+    padding-left:1.4rem;
+  }
+  .body-text p{
+    color:var(--ink-dim);
+    font-size:1.05rem;
+    margin-bottom:1.8rem;
+  }
+  .body-text h2{
+    font-size:1.6rem;
+    color:var(--paper);
+    margin:3rem 0 1rem;
+    border-bottom:1px solid var(--line);
+    padding-bottom:0.5rem;
+  }
+  .highlight-card{
+    background:linear-gradient(140deg, var(--bg-alt), var(--bg-raised));
+    border:1px solid var(--line);
+    border-left:3px solid var(--teal);
+    padding:1.5rem;
+    border-radius:0 var(--radius) var(--radius) 0;
+    margin:2.5rem 0;
+  }
+  .highlight-card h3{
+    font-size:1.15rem;
+    color:var(--paper);
+    margin-bottom:0.5rem;
+  }
+  .highlight-card p{
+    font-size:0.95rem !important;
+    margin-bottom:0 !important;
+  }
+  footer{
+    text-align:center;
+    padding:3rem 1.5rem;
+    border-top:1px solid var(--line);
+    font-family:'JetBrains Mono', monospace;
+    font-size:0.75rem;
+    color:var(--ink-faint);
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-mark"><span class="rec"></span> M. ÖZÇELİK</a>
+    <div style="display:flex; gap:1rem; align-items:center;">
+      <a href="index.html" class="back-btn" data-i18n="nav_back">← Portfolyoya Dön</a>
+      <div class="lang-switch">
+        <button class="lang-btn active" id="btn-tr" onclick="setLanguage('tr')">TR</button>
+        <button class="lang-btn" id="btn-en" onclick="setLanguage('en')">EN</button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <div class="eyebrow" data-i18n="eyebrow">Kişisel Biyografi &amp; Felsefe</div>
+  <h1 class="hero-title">Hikâyem &amp; <em>Vizyonum</em></h1>
+  
+  <div class="intro-quote" data-i18n="quote">
+    "Teknoloji ve sanat, dünyayı anlamlandırmanın iki tamamlayıcı merceği. Yazılımın disiplinli mantığı ile sinemanın duygusal anlatımını aynı potada eritiyorum."
+  </div>
+
+  <div class="body-text">
+    <h2 data-i18n="h_roots">Kökler ve Analitik Temeller</h2>
+    <p data-i18n="p_roots">
+      2004 yılında İstanbul'da doğduğum günden bu yana teknoloji ve sanat, dünyayı algılama biçimimin iki temel taşı oldu. Yolculuğum, Profilo Mesleki ve Teknik Anadolu Lisesi'nde Veritabanı Programcılığı okuyarak yazılımın analitik ve yapısal dünyasıyla tanışmamla başladı. C#, Java ve SQL üzerinde çalışarak mantıksal problem çözme becerisi kazandım. Ancak içimdeki anlatı kurma tutkusu, bu teknik altyapıyı görsel sinema diliyle harmanlamaya yöneltti; böylece Bolu Abant İzzet Baysal Üniversitesi'nde Radyo, Televizyon ve Sinema bölümüne adım attım.
+    </p>
+
+    <h2 data-i18n="h_erasmus">Sınırları Aşmak: Yunanistan Dönemi</h2>
+    <p data-i18n="p_erasmus">
+      Akademik ve sanatsal bakış açım, Yunanistan'daki İyonya Üniversitesi Görsel ve İşitsel Sanatlar Departmanı'nda geçirdiğim Erasmus+ dönemiyle uluslararası bir boyut kazandı. Orada edindiğim disiplinler arası yaklaşım sayesinde kısa filmlerimi yazıp yönetirken yalnızca bir yönetmen değil; kurgusundan ses tasarımına kadar üretimin her aşamasına hâkim bütüncül bir yaratıcıya dönüştüm.
+    </p>
+
+    <div class="highlight-card">
+      <h3 data-i18n="card_title">M. Özçelik — Müzikal ve İşitsel Kimlik</h3>
+      <p data-i18n="card_desc">
+        Sinematik anlatımın en güçlü yarısının ses olduğuna inanıyorum. "M. Özçelik" mahlasıyla FL Studio ve Ableton üzerinde beatler, film müzikleri ve deneysel elektronik kompozisyonlar üretiyorum. TRT Geleceğin İletişimcileri ve Sabancı Vakfı Kısa Film Platformu gibi yarışmalarda yer alan projelerin atmosferini, bu ses tasarımlarıyla şekillendirdim.
+      </p>
+    </div>
+
+    <h2 data-i18n="h_future">Geleceğe Bakış: Kod ve Sinemanın Birleşimi</h2>
+    <p data-i18n="p_future">
+      Bugün bir yandan yazılım geliştirmeye ve algoritmik çözümler üretmeye devam ederken, diğer yandan DaVinci Resolve ve Kdenlive başında sinematografik ritmi kurguluyorum. Gelecekteki en büyük hedefim; sinemanın insanı derinden etkileyen hikâye anlatım gücünü, yapay zekâ ve interaktif yazılımların sunduğu yenilikçi imkânlarla birleştirerek endüstride kalıpları yıkan eserler ortaya koymak.
+    </p>
+  </div>
+</main>
+
+<footer>
+  © 2026 Murat Özçelik — Tüm Hakları Saklıdır
+</footer>
+
+<script>
+  const translations = {
+    tr: {
+      nav_back: "← Portfolyoya Dön",
+      eyebrow: "Kişisel Biyografi & Felsefe",
+      quote: '"Teknoloji ve sanat, dünyayı anlamlandırmanın iki tamamlayıcı merceği. Yazılımın disiplinli mantığı ile sinemanın duygusal anlatımını aynı potada eritiyorum."',
+      h_roots: "Kökler ve Analitik Temeller",
+      p_roots: "2004 yılında İstanbul'da doğduğum günden bu yana teknoloji ve sanat, dünyayı algılama biçimimin iki temel taşı oldu. Yolculuğum, Profilo Mesleki ve Teknik Anadolu Lisesi'nde Veritabanı Programcılığı okuyarak yazılımın analitik ve yapısal dünyasıyla tanışmamla başladı. C#, Java ve SQL üzerinde çalışarak mantıksal problem çözme becerisi kazandım. Ancak içimdeki anlatı kurma tutkusu, bu teknik altyapıyı görsel sinema diliyle harmanlamaya yöneltti; böylece Bolu Abant İzzet Baysal Üniversitesi'nde Radyo, Televizyon ve Sinema bölümüne adım attım.",
+      h_erasmus: "Sınırları Aşmak: Yunanistan Dönemi",
+      p_erasmus: "Akademik ve sanatsal bakış açım, Yunanistan'daki İyonya Üniversitesi Görsel ve İşitsel Sanatlar Departmanı'nda geçirdiğim Erasmus+ dönemiyle uluslararası bir boyut kazandı. Orada edindiğim disiplinler arası yaklaşım sayesinde kısa filmlerimi yazıp yönetirken yalnızca bir yönetmen değil; kurgusundan ses tasarımına kadar üretimin her aşamasına hâkim bütüncül bir yaratıcıya dönüştüm.",
+      card_title: "M. Özçelik — Müzikal ve İşitsel Kimlik",
+      card_desc: "Sinematik anlatımın en güçlü yarısının ses olduğuna inanıyorum. \"M. Özçelik\" mahlasıyla FL Studio ve Ableton üzerinde beatler, film müzikleri ve deneysel elektronik kompozisyonlar üretiyorum. TRT Geleceğin İletişimcileri ve Sabancı Vakfı Kısa Film Platformu gibi yarışmalarda yer alan projelerin atmosferini, bu ses tasarımlarıyla şekillendirdim.",
+      h_future: "Geleceğe Bakış: Kod ve Sinemanın Birleşimi",
+      p_future: "Bugün bir yandan yazılım geliştirmeye ve algoritmik çözümler üretmeye devam ederken, diğer yandan DaVinci Resolve ve Kdenlive başında sinematografik ritmi kurguluyorum. Gelecekteki en büyük hedefim; sinemanın insanı derinden etkileyen hikâye anlatım gücünü, yapay zekâ ve interaktif yazılımların sunduğu yenilikçi imkânlarla birleştirerek endüstride kalıpları yıkan eserler ortaya koymak."
+    },
+    en: {
+      nav_back: "← Back to Portfolio",
+      eyebrow: "Biography & Creative Philosophy",
+      quote: '"Technology and art are two complementary lenses for understanding the world. I blend the disciplined logic of software with the emotional nuance of cinema."',
+      h_roots: "Roots & Analytical Foundations",
+      p_roots: "Born in Istanbul in 2004, I have always viewed technology and art as two foundational pillars of how I experience the world. My journey began in the analytical realm of computer science at Profilo Vocational High School, where I specialized in Database Programming. Building projects with C#, Java, and SQL equipped me with a structured, problem-solving mindset. However, a deep-seated passion for storytelling soon inspired me to bridge this technical foundation with cinematic arts, leading me to pursue a degree in Radio, Television, and Cinema at Bolu Abant İzzet Baysal University.",
+      h_erasmus: "Crossing Borders: The Semester in Greece",
+      p_erasmus: "My academic and artistic perspective broadened significantly during my Erasmus+ exchange semester at the Department of Audio & Visual Arts at Ionian University in Greece. Embracing a multidisciplinary approach, I evolved into a holistic creator—writing and directing my own short films while maintaining hands-on control over post-production, visual editing, and sound design.",
+      card_title: "M. Özçelik — Musical & Sonic Identity",
+      card_desc: "I firmly believe that sound is half of any cinematic experience. Under the moniker \"M. Özçelik,\" I produce beats, film scores, and experimental electronic soundscapes using FL Studio and Ableton. This sonic sensibility has shaped the atmospheres of my projects featured in competitions such as TRT Future Communicators and the Sabancı Foundation Short Film Platform.",
+      h_future: "Looking Ahead: The Synthesis of Code and Cinema",
+      p_future: "Today, I seamlessly transition between software development and crafting cinematic pacing in DaVinci Resolve and Kdenlive. Looking ahead, my ultimate aspiration is to push the boundaries of conventional filmmaking by merging emotional storytelling with emerging technologies and interactive software, creating works that break new ground in the industry."
+    }
+  };
+
+  let currentLang = localStorage.getItem('site_lang') || 'tr';
+
+  function setLanguage(lang) {
+    currentLang = lang;
+    localStorage.setItem('site_lang', lang);
+    document.documentElement.lang = lang;
+
+    document.getElementById('btn-tr').classList.toggle('active', lang === 'tr');
+    document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const key = el.getAttribute('data-i18n');
+      if (translations[lang][key]) {
+        el.textContent = translations[lang][key];
+      }
+    });
+  }
+
+  setLanguage(currentLang);
+</script>
+
+</body>
+</html>
