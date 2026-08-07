@@ -496,6 +496,71 @@
   .proj p{ color:var(--ink-dim); font-size:0.88rem; margin:0; }
   .proj .go{ font-family:'JetBrains Mono', monospace; font-size:0.78rem; color:var(--teal); margin-top:auto; }
 
+  /* ---------- INTERACTIVE BEAT PAD ---------- */
+  .beatpad-wrap {
+    margin-top: 1.5rem;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 1.4rem;
+    background: linear-gradient(160deg, var(--bg-alt), var(--bg-raised));
+  }
+  .beatpad-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 1.2rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .pad-hint {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    color: var(--ink-faint);
+  }
+  .pad-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    gap: 0.8rem;
+  }
+  .pad-btn {
+    background: #14171c;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 1.1rem 0.8rem;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4rem;
+    transition: transform 0.08s ease, border-color 0.15s ease, box-shadow 0.08s ease, background 0.15s ease;
+    user-select: none;
+  }
+  .pad-btn:hover {
+    border-color: rgba(232,163,61,0.4);
+  }
+  .pad-btn.playing {
+    transform: scale(0.96);
+    border-color: var(--amber);
+    background: linear-gradient(180deg, #1f1a14, #14171c);
+    box-shadow: 0 0 18px rgba(232,163,61,0.35);
+  }
+  .pad-kbd {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--amber);
+    border: 1px solid rgba(232,163,61,0.3);
+    padding: 0.15rem 0.45rem;
+    border-radius: 2px;
+  }
+  .pad-name {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    color: var(--paper);
+    font-weight: 600;
+    letter-spacing: 0.05em;
+  }
+
   /* ---------- FILM STRIP HOVER TOOLTIP ---------- */
   .film-strip-tooltip {
     position: fixed;
@@ -690,17 +755,18 @@
   </div>
 </header>
 
+<!-- GÜNCELLENEN BUTONLU HAKKINDA BÖLÜMÜ -->
 <section id="hakkinda" class="reveal">
   <div class="eyebrow" data-i18n="nav_about">Hakkında</div>
   <h2 class="section-title" data-i18n="nav_about">Hakkında</h2>
   <div class="about-grid">
-    <p class="about-lead" data-i18n="about_lead">2004 İstanbul doğumluyum. Küçük yaşlardan beri teknoloji ve sanatla ilgileniyorum.</p>
+    <p class="about-lead" data-i18n="about_teaser_lead">Teknoloji, sinema ve ses prodüksiyonunun kesişim noktasında çok yönlü projeler üretiyorum.</p>
     <div class="about-body">
-      <p data-i18n="about_p1">Profilo Mesleki ve Teknik Anadolu Lisesi'nde Bilişim Teknolojileri / Veritabanı Programcılığı okudum. Sonra Bolu Abant İzzet Baysal Üniversitesi Radyo, Televizyon ve Sinema bölümüne başladım. Erasmus+ programıyla bir dönem Yunanistan'da İyonya Üniversitesi Görsel ve İşitsel Sanatlar Departmanı'nda okudum.</p>
-      <p data-i18n="about_p2">Yazılım tarafında C#, Java ve SQL kullanıyorum. Video kurguda Adobe Premiere, DaVinci Resolve ve Kdenlive; ses tarafında FL Studio, Ableton Live ve Audacity ile çalışıyorum. Kendi kısa filmlerimi yazıp yönetiyorum, müziklerini de kendim yapıyorum.</p>
-      <div class="alias-card">
-        <span class="k" data-i18n="alias_title">M. Özçelik — müzik mahlası</span>
-        <p data-i18n="alias_desc">Bu isimle beat, film müziği ve deneysel elektronik çalışmalar yapıyorum. TRT GİY ve Sabancı Vakfı Kısa Film Platformu'nda yer alan kısa film projelerinde görev aldım.</p>
+      <p data-i18n="about_teaser_p">Yazılım geçmişimi sinematografik hikaye anlatımıyla birleştiriyor; kısa filmlerimi yazıp yönetiyor, kurguluyor ve 'M. Özçelik' mahlasıyla orijinal müziklerini besteliyorum.</p>
+      <div style="margin-top:1.5rem;">
+        <a href="about.html" style="display:inline-flex; align-items:center; gap:0.5rem; font-family:'JetBrains Mono', monospace; font-size:0.85rem; color:var(--amber); text-decoration:none; border:1px solid var(--line); padding:0.6rem 1rem; border-radius:var(--radius); background:var(--bg-alt); transition:border-color 0.2s, transform 0.2s;" data-i18n="about_read_more">
+          Hikâyemin Devamı &amp; Vizyonum →
+        </a>
       </div>
     </div>
   </div>
@@ -896,6 +962,35 @@
     </a>
   </div>
 
+  <!-- M. Özçelik — İnteraktif Beat Pad -->
+  <div class="beatpad-wrap">
+    <div class="beatpad-header">
+      <div>
+        <div class="eyebrow" style="margin-bottom:0.3rem;" data-i18n="pad_eyebrow">İnteraktif Ses Tasarımı</div>
+        <h3 data-i18n="pad_title">M. Özçelik — Beat Pad</h3>
+      </div>
+      <span class="pad-hint" data-i18n="pad_hint">Klavye: Q · W · E · R</span>
+    </div>
+    <div class="pad-grid">
+      <button class="pad-btn" data-key="q" onclick="triggerPad('kick', this)">
+        <span class="pad-kbd">Q</span>
+        <span class="pad-name" data-i18n="pad_kick">KICK (SUB)</span>
+      </button>
+      <button class="pad-btn" data-key="w" onclick="triggerPad('snare', this)">
+        <span class="pad-kbd">W</span>
+        <span class="pad-name" data-i18n="pad_snare">SNARE (CRISP)</span>
+      </button>
+      <button class="pad-btn" data-key="e" onclick="triggerPad('synth', this)">
+        <span class="pad-kbd">E</span>
+        <span class="pad-name" data-i18n="pad_synth">SYNTH (ATMOS)</span>
+      </button>
+      <button class="pad-btn" data-key="r" onclick="triggerPad('drone', this)">
+        <span class="pad-kbd">R</span>
+        <span class="pad-name" data-i18n="pad_drone">BASS (IMPACT)</span>
+      </button>
+    </div>
+  </div>
+
   <div style="margin-top:1.2rem; border-radius:var(--radius); overflow:hidden;">
     <iframe style="border-radius:2px;" src="https://open.spotify.com/embed/playlist/37i9dQZF1DZ06evO1uBWXZ?utm_source=generator" width="100%" height="352" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
   </div>
@@ -951,11 +1046,9 @@
       field_dept_v: "Radyo, TV ve Sinema",
       field_alias_k: "Mahlas",
       field_alias_v: "M. Özçelik",
-      about_lead: "2004 İstanbul doğumluyum. Küçük yaşlardan beri teknoloji ve sanatla ilgileniyorum.",
-      about_p1: "Profilo Mesleki ve Teknik Anadolu Lisesi'nde Bilişim Teknolojileri / Veritabanı Programcılığı okudum. Sonra Bolu Abant İzzet Baysal Üniversitesi Radyo, Televizyon ve Sinema bölümüne başladım. Erasmus+ programıyla bir dönem Yunanistan'da İyonya Üniversitesi Görsel ve İşitsel Sanatlar Departmanı'nda okudum.",
-      about_p2: "Yazılım tarafında C#, Java ve SQL kullanıyorum. Video kurguda Adobe Premiere, DaVinci Resolve ve Kdenlive; ses tarafında FL Studio, Ableton Live ve Audacity ile çalışıyorum. Kendi kısa filmlerimi yazıp yönetiyorum, müziklerini de kendim yapıyorum.",
-      alias_title: "M. Özçelik — müzik mahlası",
-      alias_desc: "Bu isimle beat, film müziği ve deneysel elektronik çalışmalar yapıyorum. TRT GİY ve Sabancı Vakfı Kısa Film Platformu'nda yer alan kısa film projelerinde görev aldım.",
+      about_teaser_lead: "Teknoloji, sinema ve ses prodüksiyonunun kesişim noktasında çok yönlü projeler üretiyorum.",
+      about_teaser_p: "Yazılım geçmişimi sinematografik hikaye anlatımıyla birleştiriyor; kısa filmlerimi yazıp yönetiyor, kurguluyor ve 'M. Özçelik' mahlasıyla orijinal müziklerini besteliyorum.",
+      about_read_more: "Hikâyemin Devamı & Vizyonum →",
       skills_hint: "Bir öğeye dokun, altta açıklamasını gör.",
       track_v2: "Görsel & Film",
       track_v1: "Yazılım",
@@ -1015,6 +1108,13 @@
       proj_3_link: "GitHub'da gör →",
       contact_title: "İletişime geç",
       contact_desc: "Film, yazılım ya da ses konusunda bir proje varsa yazabilirsin.",
+      pad_eyebrow: "İnteraktif Ses Tasarımı",
+      pad_title: "M. Özçelik — Beat Pad",
+      pad_hint: "Klavye: Q · W · E · R",
+      pad_kick: "KICK (SUB)",
+      pad_snare: "SNARE (CRISP)",
+      pad_synth: "SYNTH (ATMOS)",
+      pad_drone: "BASS (IMPACT)",
       clips: {
         film_prod: { title: "Film Prodüksiyonu", desc: "Kısa film yazıyor ve yönetiyorum. TRT GİY ve Sabancı Vakfı Kısa Film Platformu'nda yer alan projelerde görev aldım." },
         editing: { title: "Kurgu", desc: "DaVinci Resolve, Adobe Premiere ve Kdenlive kullanıyorum. Bilgeİş'ten sertifikam var." },
@@ -1068,11 +1168,9 @@
       field_dept_v: "Radio, TV & Cinema",
       field_alias_k: "Moniker",
       field_alias_v: "M. Özçelik",
-      about_lead: "Born in Istanbul in 2004. Passionate about technology and art from an early age.",
-      about_p1: "I studied Information Technologies / Database Programming at Profilo Vocational and Technical Anatolian High School. Later, I enrolled in Radio, Television, and Cinema at Bolu Abant İzzet Baysal University. Through the Erasmus+ program, I spent a semester studying at the Department of Audio & Visual Arts at Ionian University in Greece.",
-      about_p2: "In software development, I work with C#, Java, and SQL. For video editing, I use Adobe Premiere, DaVinci Resolve, and Kdenlive; for audio production, FL Studio, Ableton Live, and Audacity. I write and direct my own short films and produce original musical scores for them.",
-      alias_title: "M. Özçelik — musical moniker",
-      alias_desc: "Under this alias, I produce beats, film scores, and experimental electronic music. I have contributed to short film projects featured on TRT GİY and Sabancı Foundation Short Film Platform.",
+      about_teaser_lead: "Creating multidisciplinary projects at the intersection of technology, cinema, and audio production.",
+      about_teaser_p: "Combining a computer science background with cinematic storytelling; I write, direct, edit, and score my own short films under the moniker 'M. Özçelik'.",
+      about_read_more: "Read My Full Story & Vision →",
       skills_hint: "Click an item to see its details below.",
       track_v2: "Visual & Film",
       track_v1: "Software",
@@ -1132,6 +1230,13 @@
       proj_3_link: "View on GitHub →",
       contact_title: "Get in touch",
       contact_desc: "Feel free to reach out if you have a project in film, software, or audio production.",
+      pad_eyebrow: "Interactive Sound Design",
+      pad_title: "M. Özçelik — Beat Pad",
+      pad_hint: "Keyboard: Q · W · E · R",
+      pad_kick: "KICK (SUB)",
+      pad_snare: "SNARE (CRISP)",
+      pad_synth: "SYNTH (ATMOS)",
+      pad_drone: "BASS (IMPACT)",
       clips: {
         film_prod: { title: "Film Production", desc: "I write and direct short films. Worked on projects featured on TRT GİY and Sabancı Foundation Short Film Platform." },
         editing: { title: "Video Editing", desc: "Experienced in DaVinci Resolve, Adobe Premiere, and Kdenlive. Certified by Bilgeİş." },
@@ -1301,6 +1406,130 @@
     item.addEventListener('mouseleave', () => {
       tooltip.classList.remove('visible');
     });
+  });
+
+  // ---------- WEB AUDIO API BEAT PAD ENGINE ----------
+  let audioCtx = null;
+
+  function initAudio() {
+    if (!audioCtx) {
+      audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    }
+    if (audioCtx.state === 'suspended') {
+      audioCtx.resume();
+    }
+  }
+
+  function playSynthSound(type) {
+    initAudio();
+    const now = audioCtx.currentTime;
+
+    if (type === 'kick') {
+      // Derin Sub-Bass Kick
+      const osc = audioCtx.createOscillator();
+      const gain = audioCtx.createGain();
+      osc.connect(gain);
+      gain.connect(audioCtx.destination);
+
+      osc.frequency.setValueAtTime(140, now);
+      osc.frequency.exponentialRampToValueAtTime(32, now + 0.18);
+      gain.gain.setValueAtTime(1, now);
+      gain.gain.exponentialRampToValueAtTime(0.001, now + 0.35);
+
+      osc.start(now);
+      osc.stop(now + 0.35);
+    } 
+    else if (type === 'snare') {
+      // Crisp White-Noise Snare / Clap
+      const bufferSize = audioCtx.sampleRate * 0.15;
+      const buffer = audioCtx.createBuffer(1, bufferSize, audioCtx.sampleRate);
+      const data = buffer.getChannelData(0);
+      for (let i = 0; i < bufferSize; i++) {
+        data[i] = Math.random() * 2 - 1;
+      }
+
+      const noise = audioCtx.createBufferSource();
+      noise.buffer = buffer;
+
+      const filter = audioCtx.createBiquadFilter();
+      filter.type = 'highpass';
+      filter.frequency.setValueAtTime(800, now);
+
+      const gain = audioCtx.createGain();
+      gain.gain.setValueAtTime(0.8, now);
+      gain.gain.exponentialRampToValueAtTime(0.01, now + 0.15);
+
+      noise.connect(filter);
+      filter.connect(gain);
+      gain.connect(audioCtx.destination);
+
+      noise.start(now);
+    } 
+    else if (type === 'synth') {
+      // Melankolik Sinematik Akor (C Minor Atmosfer)
+      const freqs = [261.63, 311.13, 392.00]; // C4, D#4, G4
+      freqs.forEach(f => {
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+        osc.type = 'sawtooth';
+        osc.frequency.setValueAtTime(f, now);
+
+        const filter = audioCtx.createBiquadFilter();
+        filter.type = 'lowpass';
+        filter.frequency.setValueAtTime(1200, now);
+
+        osc.connect(filter);
+        filter.connect(gain);
+        gain.connect(audioCtx.destination);
+
+        gain.gain.setValueAtTime(0.01, now);
+        gain.gain.linearRampToValueAtTime(0.15, now + 0.05);
+        gain.gain.exponentialRampToValueAtTime(0.001, now + 0.6);
+
+        osc.start(now);
+        osc.stop(now + 0.6);
+      });
+    } 
+    else if (type === 'drone') {
+      // Sinematik Derin Bas Darbesi (Hans Zimmer Impact)
+      const osc = audioCtx.createOscillator();
+      const gain = audioCtx.createGain();
+      osc.type = 'triangle';
+      osc.connect(gain);
+      gain.connect(audioCtx.destination);
+
+      osc.frequency.setValueAtTime(80, now);
+      osc.frequency.exponentialRampToValueAtTime(38, now + 0.4);
+      gain.gain.setValueAtTime(0.9, now);
+      gain.gain.exponentialRampToValueAtTime(0.001, now + 0.8);
+
+      osc.start(now);
+      osc.stop(now + 0.8);
+    }
+  }
+
+  function triggerPad(type, btnEl) {
+    playSynthSound(type);
+    if (btnEl) {
+      btnEl.classList.add('playing');
+      setTimeout(() => btnEl.classList.remove('playing'), 150);
+    }
+  }
+
+  // Klavye Kısayolları (Q, W, E, R)
+  window.addEventListener('keydown', (e) => {
+    if (e.repeat) return; // Tuşa basılı tutulursa üst üste patlamasını engeller
+    const keyMap = {
+      'q': 'kick',
+      'w': 'snare',
+      'e': 'synth',
+      'r': 'drone'
+    };
+    const key = e.key.toLowerCase();
+    if (keyMap[key]) {
+      const btnEl = document.querySelector(`.pad-btn[data-key="${key}"]`);
+      triggerPad(keyMap[key], btnEl);
+    }
   });
 
   // Initialize language on page load
