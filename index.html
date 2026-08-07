@@ -496,6 +496,70 @@
   .proj p{ color:var(--ink-dim); font-size:0.88rem; margin:0; }
   .proj .go{ font-family:'JetBrains Mono', monospace; font-size:0.78rem; color:var(--teal); margin-top:auto; }
 
+  /* ---------- FILM STRIP HOVER TOOLTIP ---------- */
+  .film-strip-tooltip {
+    position: fixed;
+    z-index: 1000;
+    pointer-events: none;
+    opacity: 0;
+    transform: translateY(8px) scale(0.97);
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    width: 280px;
+    background: var(--bg-alt);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    box-shadow: 0 16px 36px -8px rgba(0,0,0,0.75), 0 0 0 1px rgba(232,163,61,0.18);
+    overflow: hidden;
+  }
+  .film-strip-tooltip.visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  .film-strip-holes {
+    height: 12px;
+    background:
+      repeating-linear-gradient(
+        90deg,
+        transparent 0px,
+        transparent 10px,
+        #14171c 10px,
+        #14171c 18px
+      ),
+      var(--bg-alt);
+    border-bottom: 1px solid var(--line);
+  }
+  .film-strip-holes.bottom {
+    border-bottom: none;
+    border-top: 1px solid var(--line);
+  }
+  .film-strip-content {
+    padding: 1rem 1.1rem;
+    font-family: 'Inter', sans-serif;
+  }
+  .film-strip-meta {
+    display: flex;
+    justify-content: space-between;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.68rem;
+    color: var(--amber);
+    margin-bottom: 0.45rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .film-strip-title {
+    font-family: 'Fraunces', serif;
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--paper);
+    margin-bottom: 0.4rem;
+  }
+  .film-strip-desc {
+    font-size: 0.82rem;
+    color: var(--ink-dim);
+    line-height: 1.45;
+    margin: 0;
+  }
+
   /* ---------- CUSTOM VIDEO PLAY/PAUSE ---------- */
   .video-embed{ position:relative; }
   .video-embed iframe{ pointer-events:none; }
@@ -697,7 +761,7 @@
   <div class="eyebrow" data-i18n="nav_films">Filmler</div>
   <h2 class="section-title" data-i18n="nav_films">Filmler</h2>
   <div class="proj-grid">
-    <div class="proj" style="cursor:default;">
+    <div class="proj film-item" data-film="zamansiz" style="cursor:default;">
       <span class="tag" data-i18n="short_film_tag">Kısa Film</span>
       <h3 data-i18n="film_1_title">Zamansız Yolculuk</h3>
       <p data-i18n="film_1_role">Yönetmenlik · Senaryo · Ses ve Müzik</p>
@@ -706,7 +770,7 @@
         <button class="yt-toggle playing" data-target="yt-zamansiz" aria-label="Oynat / Duraklat"></button>
       </div>
     </div>
-    <div class="proj" style="cursor:default;">
+    <div class="proj film-item" data-film="gaia" style="cursor:default;">
       <span class="tag" data-i18n="short_film_tag">Kısa Film</span>
       <h3 data-i18n="film_2_title">Gaia'nın Çığlığı</h3>
       <p data-i18n="film_2_role">Görüntü Yönetmenliği · Kurgu · Ses ve Müzik</p>
@@ -715,7 +779,7 @@
         <button class="yt-toggle playing" data-target="yt-gaia" aria-label="Oynat / Duraklat"></button>
       </div>
     </div>
-    <div class="proj" style="cursor:default;">
+    <div class="proj film-item" data-film="distant" style="cursor:default;">
       <span class="tag" data-i18n="short_film_tag">Kısa Film</span>
       <h3>DISTANT</h3>
       <p data-i18n="film_3_role">Yönetmenlik · Görüntü Yönetmenliği · Kurgu · Ses</p>
@@ -850,6 +914,20 @@
   <div class="fine-print">© 2026 Murat Özçelik</div>
 </footer>
 
+<!-- Film Şeridi Bilgi Kutucu -->
+<div id="film-tooltip" class="film-strip-tooltip">
+  <div class="film-strip-holes"></div>
+  <div class="film-strip-content">
+    <div class="film-strip-meta">
+      <span id="tooltip-meta-time">00:00</span>
+      <span id="tooltip-meta-genre">Bilimkurgu · 2025</span>
+    </div>
+    <div id="tooltip-title" class="film-strip-title">Zamansız Yolculuk</div>
+    <p id="tooltip-desc" class="film-strip-desc">Zaman ve mekân algısını sorgulayan deneysel bir kısa film çalışması.</p>
+  </div>
+  <div class="film-strip-holes bottom"></div>
+</div>
+
 <script>
   // ---------- TRANSLATION DICTIONARY & LOGIC ----------
   const translations = {
@@ -948,6 +1026,26 @@
         sound_design: { title: "Ses Tasarımı", desc: "Film ve proje sesleri için ses tasarımı yapıyorum." },
         audacity: { title: "Audacity", desc: "Ses düzenleme için kullanıyorum. Bilgeİş'ten sertifikam var." },
         fl_studio: { title: "FL Studio & Ableton", desc: "M. Özçelik mahlasıyla beat, film müziği ve deneysel elektronik müzik yapıyorum." }
+      },
+      films: {
+        zamansiz: {
+          title: "Zamansız Yolculuk",
+          time: "10:24",
+          genre: "Deneysel · 2025",
+          desc: "Zaman ve mekân algısını sorgulayan, sinematografik atmosferi güçlü deneysel kısa film çalışması."
+        },
+        gaia: {
+          title: "Gaia'nın Çığlığı",
+          time: "06:56",
+          genre: "Çevre / Drama · 2026",
+          desc: "İnsanlığın doğayla olan çatışmasını ve ekolojik yıkımı görsel bir estetikle ele alan proje."
+        },
+        distant: {
+          title: "DISTANT",
+          time: "07:24",
+          genre: "Drama / Gizem · 2026",
+          desc: "İletişimsizliği ve modern yalnızlığı merkezine alan kısa film projesi."
+        }
       }
     },
     en: {
@@ -1045,6 +1143,26 @@
         sound_design: { title: "Sound Design", desc: "Creating sound design and atmospheres for short films and visual projects." },
         audacity: { title: "Audacity", desc: "Used for audio editing and post-processing. Certified by Bilgeİş." },
         fl_studio: { title: "FL Studio & Ableton", desc: "Producing beats, film scores, and experimental electronic music under the M. Özçelik alias." }
+      },
+      films: {
+        zamansiz: {
+          title: "Timeless Journey",
+          time: "10:24",
+          genre: "Experimental · 2025",
+          desc: "An experimental short film exploring the perception of time and space with a strong visual atmosphere."
+        },
+        gaia: {
+          title: "Gaia's Cry",
+          time: "06:56",
+          genre: "Eco / Drama · 2026",
+          desc: "A cinematic short film addressing humanity's conflict with nature and ecological destruction."
+        },
+        distant: {
+          title: "DISTANT",
+          time: "07:24",
+          genre: "Drama / Mystery · 2026",
+          desc: "A dramatic short film focusing on themes of miscommunication and modern isolation."
+        }
       }
     }
   };
@@ -1137,6 +1255,51 @@
       iframe.contentWindow.postMessage(JSON.stringify({ event: 'command', func: cmd, args: [] }), '*');
       playing = !playing;
       btn.classList.toggle('playing', playing);
+    });
+  });
+
+  // ---------- FILM STRIP HOVER TOOLTIP LOGIC ----------
+  const tooltip = document.getElementById('film-tooltip');
+  const tooltipTitle = document.getElementById('tooltip-title');
+  const tooltipDesc = document.getElementById('tooltip-desc');
+  const tooltipTime = document.getElementById('tooltip-meta-time');
+  const tooltipGenre = document.getElementById('tooltip-meta-genre');
+
+  document.querySelectorAll('.film-item').forEach(item => {
+    item.addEventListener('mouseenter', () => {
+      const filmKey = item.getAttribute('data-film');
+      const filmInfo = translations[currentLang]?.films?.[filmKey];
+
+      if (filmInfo) {
+        tooltipTitle.textContent = filmInfo.title;
+        tooltipDesc.textContent = filmInfo.desc;
+        tooltipTime.textContent = filmInfo.time;
+        tooltipGenre.textContent = filmInfo.genre;
+        tooltip.classList.add('visible');
+      }
+    });
+
+    item.addEventListener('mousemove', (e) => {
+      const offsetX = 16;
+      const offsetY = 16;
+      let x = e.clientX + offsetX;
+      let y = e.clientY + offsetY;
+
+      // Tooltip'in ekranın sağından taşmasını önle
+      if (x + 280 > window.innerWidth) {
+        x = e.clientX - 280 - offsetX;
+      }
+      // Tooltip'in alt kenardan taşmasını önle
+      if (y + 130 > window.innerHeight) {
+        y = window.innerHeight - 140;
+      }
+
+      tooltip.style.left = x + 'px';
+      tooltip.style.top = y + 'px';
+    });
+
+    item.addEventListener('mouseleave', () => {
+      tooltip.classList.remove('visible');
     });
   });
 
