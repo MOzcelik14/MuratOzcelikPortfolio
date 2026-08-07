@@ -373,7 +373,11 @@
     border-top:1px solid var(--line);
     min-height:76px;
     position:relative; z-index:2;
+    display:flex;
+    gap:1rem;
+    align-items:flex-start;
   }
+  .monitor-text{ flex:1; min-width:0; }
   .monitor .k{
     font-family:'JetBrains Mono', monospace;
     font-size:0.68rem; letter-spacing:0.08em; text-transform:uppercase;
@@ -384,6 +388,19 @@
     margin:0.4rem 0 0;
     color:var(--ink-dim);
     font-size:0.92rem;
+  }
+  .monitor-img{
+    flex-shrink:0;
+    width:96px; height:96px;
+    border-radius:2px;
+    object-fit:cover;
+    border:1px solid var(--line);
+    display:none;
+  }
+  .monitor-img.shown{ display:block; }
+  @media (max-width:480px){
+    .monitor{ flex-direction:column-reverse; }
+    .monitor-img{ width:100%; height:140px; }
   }
 
   /* ---------- CREDITS / EXPERIENCE ---------- */
@@ -640,18 +657,18 @@
       <div class="track track-video">
         <div class="track-label"><b>V2</b> <span data-i18n="track_v2">Görsel &amp; Film</span></div>
         <div class="clips">
-          <button class="clip" data-key="film_prod" data-title="Film Prodüksiyonu" data-desc="Kısa film yazıyor ve yönetiyorum. TRT GİY ve Sabancı Vakfı Kısa Film Platformu'nda yer alan projelerde görev aldım.">Film Prodüksiyonu</button>
-          <button class="clip" data-key="editing" data-title="Kurgu" data-desc="DaVinci Resolve, Adobe Premiere ve Kdenlive kullanıyorum. Bilgeİş'ten sertifikam var.">Kurgu</button>
-          <button class="clip" data-key="photo" data-title="Fotoğrafçılık" data-desc="Dijital fotoğrafçılık teknikleri üzerine Bilgeİş'ten sertifikam var.">Fotoğrafçılık</button>
+          <button class="clip" data-key="film_prod" data-title="Film Prodüksiyonu" data-desc="Kısa film yazıyor ve yönetiyorum. TRT GİY ve Sabancı Vakfı Kısa Film Platformu'nda yer alan projelerde görev aldım." data-img="https://i.hizliresim.com/jbw584t.jpeg">Film Prodüksiyonu</button>
+          <button class="clip" data-key="editing" data-title="Kurgu" data-desc="DaVinci Resolve, Adobe Premiere ve Kdenlive kullanıyorum. Bilgeİş'ten sertifikam var." data-img="https://cdn.lo4d.com/t/screenshot/full/kdenlive.webp">Kurgu</button>
+          <button class="clip" data-key="photo" data-title="Fotoğrafçılık" data-desc="Dijital fotoğrafçılık teknikleri üzerine Bilgeİş'ten sertifikam var." data-img="https://i.hizliresim.com/rb9bifw.jpeg">Fotoğrafçılık</button>
         </div>
       </div>
 
       <div class="track track-code">
         <div class="track-label"><b>V1</b> <span data-i18n="track_v1">Yazılım</span></div>
         <div class="clips">
-          <button class="clip" data-key="csharp" data-title="C# Programlama" data-desc="BTK Akademi'den sertifikam var. WPF ile masaüstü arayüzleri de yapıyorum.">C#</button>
-          <button class="clip" data-key="java" data-title="Java Programlama" data-desc="Android uygulama geliştirmede kullanıyorum. BTK Akademi'den sertifikam var.">Java</button>
-          <button class="clip" data-key="sql" data-title="SQL & Veritabanı" data-desc="Profilo MTAL'de veritabanı programcılığı okudum.">SQL</button>
+          <button class="clip" data-key="csharp" data-title="C# Programlama" data-desc="BTK Akademi'den sertifikam var. WPF ile masaüstü arayüzleri de yapıyorum." data-img="https://ilef.ibu.edu.tr/Files/Images/whatsapp-google-chrome-4-...-4052025010527.png">C#</button>
+          <button class="clip" data-key="java" data-title="Java Programlama" data-desc="Android uygulama geliştirmede kullanıyorum. BTK Akademi'den sertifikam var." data-img="https://jee.gr/wp-content/uploads/2023/06/programming-code-screen-java.jpg">Java</button>
+          <button class="clip" data-key="sql" data-title="SQL & Veritabanı" data-desc="Profilo MTAL'de veritabanı programcılığı okudum." data-img="https://www.idera.com/wp-content/uploads/2026/01/SQL-Server-Activity-Monitor-1024x576.jpeg">SQL</button>
           <button class="clip" data-key="wpf" data-title="WPF" data-desc="Windows masaüstü uygulamaları için arayüz geliştiriyorum.">WPF</button>
         </div>
       </div>
@@ -660,15 +677,18 @@
         <div class="track-label"><b>A1</b> <span data-i18n="track_a1">Ses &amp; Müzik</span></div>
         <div class="clips">
           <button class="clip" data-key="sound_design" data-title="Ses Tasarımı" data-desc="Film ve proje sesleri için ses tasarımı yapıyorum.">Ses Tasarımı</button>
-          <button class="clip" data-key="audacity" data-title="Audacity" data-desc="Ses düzenleme için kullanıyorum. Bilgeİş'ten sertifikam var.">Audacity</button>
-          <button class="clip" data-key="fl_studio" data-title="FL Studio & Ableton" data-desc="M. Özçelik mahlasıyla beat, film müziği ve deneysel elektronik müzik yapıyorum.">FL Studio / Ableton</button>
+          <button class="clip" data-key="audacity" data-title="Audacity" data-desc="Ses düzenleme için kullanıyorum. Bilgeİş'ten sertifikam var." data-img="https://www.premiumbeat.com/blog/wp-content/uploads/2020/01/audacity-cover.jpg">Audacity</button>
+          <button class="clip" data-key="fl_studio" data-title="FL Studio & Ableton" data-desc="M. Özçelik mahlasıyla beat, film müziği ve deneysel elektronik müzik yapıyorum." data-img="https://musictech.com/wp-content/uploads/2021/02/ABLETON-LIVE-FL-STUDIO@1400X1050.jpg">FL Studio / Ableton</button>
         </div>
       </div>
     </div>
 
     <div class="monitor">
-      <span class="k" data-i18n="monitor_k">Önizleme</span>
-      <p id="monitor-desc" data-i18n="monitor_p">Yukarıdaki öğelerden birine dokun, açıklaması burada görünsün.</p>
+      <div class="monitor-text">
+        <span class="k" data-i18n="monitor_k">Önizleme</span>
+        <p id="monitor-desc" data-i18n="monitor_p">Yukarıdaki öğelerden birine dokun, açıklaması burada görünsün.</p>
+      </div>
+      <img id="monitor-img" class="monitor-img" src="" alt="">
     </div>
   </div>
 </section>
@@ -1048,7 +1068,7 @@
       }
     });
 
-    // Update clip items
+    // Update clip items (keeps existing data-img untouched)
     document.querySelectorAll('.clip').forEach(clip => {
       const clipKey = clip.getAttribute('data-key');
       if (clipKey && translations[lang].clips[clipKey]) {
@@ -1074,6 +1094,16 @@
       document.querySelectorAll('.clip').forEach(c => c.classList.remove('active'));
       clip.classList.add('active');
       document.getElementById('monitor-desc').textContent = clip.dataset.desc;
+
+      const monitorImg = document.getElementById('monitor-img');
+      if (clip.dataset.img) {
+        monitorImg.src = clip.dataset.img;
+        monitorImg.alt = clip.dataset.title || '';
+        monitorImg.classList.add('shown');
+      } else {
+        monitorImg.classList.remove('shown');
+        monitorImg.src = '';
+      }
 
       if (playhead && tracksArea) {
         const areaRect = tracksArea.getBoundingClientRect();
