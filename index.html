@@ -17,8 +17,7 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Murat Özçelik | Portfolyo">
 <meta name="twitter:description" content="Murat Özçelik'in kişisel portfolyosu. Radyo, Televizyon ve Sinema.">
-  
-  
+
 <title>Murat Özçelik | Portfolyo</title>
 
   <script type="application/ld+json">
@@ -35,40 +34,34 @@
   }
 }
 </script>
-  
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,500;1,9..144,600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg:#14171c;
-    --bg-alt:#1b1f26;
-    --bg-raised:#20242c;
-    --paper:#ede6d8;
-    --ink:#ede6d8;
-    --ink-dim:#9aa1ac;
-    --ink-faint:#666e7a;
-    --amber:#e8a33d;
-    --teal:#5fa8a0;
-    --crimson:#c1443c;
-    --line: rgba(237,230,216,0.12);
+    --bg:#15171a;
+    --bg-alt:#1c1f23;
+    --paper:#e9e6de;
+    --ink:#e9e6de;
+    --ink-dim:#989ba1;
+    --ink-faint:#63666c;
+    --amber:#d99a4e;
+    --teal:#5f9c94;
+    --crimson:#b8544a;
+    --line: rgba(233,230,222,0.12);
     --radius: 3px;
+    --font: 'JetBrains Mono Nerd Font', 'JetBrainsMono Nerd Font', 'JetBrains Mono', ui-monospace, monospace;
   }
 
   *{box-sizing:border-box;}
   html{scroll-behavior:smooth;}
   body{
     margin:0;
-    background:
-      radial-gradient(ellipse 1000px 600px at 15% -5%, rgba(232,163,61,0.20), transparent 60%),
-      radial-gradient(ellipse 900px 700px at 100% 25%, rgba(95,168,160,0.16), transparent 55%),
-      radial-gradient(ellipse 800px 600px at 5% 75%, rgba(193,68,60,0.13), transparent 55%),
-      radial-gradient(ellipse 700px 500px at 90% 95%, rgba(232,163,61,0.10), transparent 55%),
-      var(--bg);
-    background-attachment:fixed;
+    background:var(--bg);
     color:var(--ink);
-    font-family:'Inter', sans-serif;
-    line-height:1.6;
+    font-family:var(--font);
+    line-height:1.65;
     -webkit-font-smoothing:antialiased;
   }
   @media (prefers-reduced-motion: reduce){
@@ -76,303 +69,165 @@
     *{animation-duration:0.01ms !important; transition-duration:0.01ms !important;}
   }
 
-  ::selection{ background:var(--amber); color:#14171c; }
+  ::selection{ background:var(--amber); color:#15171a; }
 
   a{color:inherit;}
   h1,h2,h3{
-    font-family:'Fraunces', serif;
+    font-family:var(--font);
     margin:0;
     font-weight:600;
   }
 
   .eyebrow{
-    font-family:'JetBrains Mono', monospace;
+    font-family:var(--font);
     font-size:0.72rem;
-    letter-spacing:0.14em;
-    text-transform:uppercase;
-    color:var(--amber);
-    display:flex;
-    align-items:center;
-    gap:0.6em;
-    margin-bottom:1.1rem;
-  }
-  .eyebrow::before{
-    content:"";
-    width:7px;height:7px;border-radius:50%;
-    background:var(--crimson);
-    box-shadow:0 0 0 3px rgba(193,68,60,0.18);
+    letter-spacing:0.08em;
+    color:var(--ink-faint);
+    margin-bottom:0.9rem;
   }
 
   section{
-    padding:5.5rem 1.5rem;
-    max-width:920px;
+    padding:4.5rem 1.5rem;
+    max-width:860px;
     margin:0 auto;
     border-bottom:1px solid var(--line);
   }
   section:last-of-type{border-bottom:none;}
 
-  /* ---------- NAV (FLOATING PILL DESIGN) ---------- */
+  /* ---------- NAV ---------- */
   nav{
-    position:sticky; top:1.2rem; z-index:50;
-    max-width:920px; margin:0 auto;
-    padding:0 1.5rem;
-    pointer-events:none;
+    position:sticky; top:0; z-index:50;
+    background:rgba(21,23,26,0.92);
+    border-bottom:1px solid var(--line);
   }
   .nav-inner{
-    pointer-events:auto;
-    background:rgba(27, 31, 38, 0.82);
-    backdrop-filter:blur(12px);
-    -webkit-backdrop-filter:blur(12px);
-    border:1px solid rgba(237,230,216,0.14);
-    border-radius:999px;
-    padding:0.65rem 1.4rem;
+    max-width:860px; margin:0 auto;
+    padding:0.9rem 1.5rem;
     display:flex; align-items:center; justify-content:space-between;
-    box-shadow:0 12px 32px -10px rgba(0,0,0,0.55);
   }
   .nav-mark{
-    font-family:'JetBrains Mono', monospace;
-    font-weight:700; font-size:0.92rem;
-    letter-spacing:0.04em;
-    display:flex; align-items:center; gap:0.5rem;
+    font-family:var(--font);
+    font-weight:700; font-size:0.9rem;
+    letter-spacing:0.02em;
     color:var(--paper);
     text-decoration:none;
   }
-  .nav-mark .rec{
-    width:8px;height:8px;border-radius:50%;
-    background:var(--crimson);
-    animation:blink 2.4s ease-in-out infinite;
-  }
-  @keyframes blink{ 0%,100%{opacity:1;} 50%{opacity:0.25;} }
   .nav-links{
-    display:flex; gap:1.8rem; align-items:center;
-    font-family:'JetBrains Mono', monospace;
-    font-size:0.72rem;
-    letter-spacing:0.08em;
-    text-transform:uppercase;
+    display:flex; gap:1.6rem; align-items:center;
+    font-family:var(--font);
+    font-size:0.75rem;
   }
   .nav-links a{
     text-decoration:none; color:var(--ink-dim);
     padding:0.2rem 0;
-    transition:color 0.2s, transform 0.15s;
+    transition:color 0.15s;
+    border-bottom:1px solid transparent;
   }
-  .nav-links a:hover{ color:var(--amber); transform:translateY(-1px); }
-  @media (max-width:768px){ .nav-links a{ display:none; } }
+  .nav-links a:hover{ color:var(--ink); border-bottom-color:var(--amber); }
+  @media (max-width:700px){ .nav-links a{ display:none; } }
 
   /* ---------- LANGUAGE SWITCHER ---------- */
   .lang-switch {
     display: inline-flex;
     align-items: center;
-    gap: 0.25rem;
-    margin-left: 0.5rem;
+    gap: 0.15rem;
+    margin-left: 0.4rem;
     border: 1px solid var(--line);
-    padding: 0.18rem 0.45rem;
-    border-radius: 999px;
-    background: var(--bg);
+    border-radius: 3px;
   }
   .lang-btn {
     background: none;
     border: none;
     color: var(--ink-dim);
-    font-family: 'JetBrains Mono', monospace;
+    font-family: var(--font);
     font-size: 0.68rem;
     font-weight: 600;
     cursor: pointer;
-    padding: 0.12rem 0.4rem;
-    border-radius: 999px;
+    padding: 0.2rem 0.5rem;
     transition: color 0.2s, background 0.2s;
   }
   .lang-btn:hover { color: var(--ink); }
   .lang-btn.active {
-    color: #14171c;
+    color: #15171a;
     background: var(--amber);
   }
 
-  /* ---------- HERO / CLAPPERBOARD ---------- */
+  /* ---------- HERO ---------- */
   .hero{
-    padding:0 1.5rem;
-    max-width:920px; margin:0 auto;
+    padding:3.2rem 1.5rem 3.6rem;
+    max-width:860px; margin:0 auto;
     border-bottom:1px solid var(--line);
   }
-  .slate{
-    margin-top:3rem;
-    border:1px solid var(--line);
-    border-radius:var(--radius);
-    overflow:hidden;
-    background:var(--bg-alt);
-  }
-  .slate-stripes{
-    height:22px;
-    background:repeating-linear-gradient(
-      -35deg,
-      #14171c 0 22px,
-      var(--paper) 22px 44px
-    );
-    border-bottom:1px solid var(--line);
-  }
-  .slate-body{ padding:2.6rem 2rem 2.2rem; }
-  .slate-title{
-    font-size:clamp(2.6rem, 8vw, 4.6rem);
-    line-height:1;
+  .hero-title{
+    font-size:clamp(2.1rem, 6vw, 3rem);
+    line-height:1.1;
     letter-spacing:-0.01em;
+    color:var(--paper);
   }
-  .slate-title em{
-    font-style:italic;
-    font-weight:500;
-    background:linear-gradient(100deg, var(--amber) 10%, #f2c675 45%, var(--crimson) 90%);
-    -webkit-background-clip:text;
-    background-clip:text;
-    -webkit-text-fill-color:transparent;
-  }
-  .slate-tag{
-    margin-top:0.9rem;
+  .hero-tag{
+    margin-top:1rem;
     color:var(--ink-dim);
-    font-size:1.05rem;
-    max-width:38ch;
+    font-size:1rem;
+    max-width:56ch;
+    line-height:1.7;
   }
-  .slate-fields{
-    margin-top:2.2rem;
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
-    border-top:1px solid var(--line);
+  .hero-meta{
+    margin-top:1.6rem;
+    display:flex;
+    flex-wrap:wrap;
+    gap:0.5rem 1.6rem;
+    font-size:0.82rem;
   }
-  .slate-field{
-    padding:0.9rem 0;
-    border-right:1px solid var(--line);
-    padding-right:1rem;
-  }
-  .slate-field:last-child{ border-right:none; }
-  .slate-field .k{
-    font-family:'JetBrains Mono', monospace;
-    font-size:0.65rem;
-    letter-spacing:0.1em;
-    text-transform:uppercase;
-    color:var(--ink-faint);
-    display:block;
-    margin-bottom:0.3rem;
-  }
-  .slate-field .v{
-    font-size:0.92rem;
-    color:var(--ink);
-  }
-  .slate-stripes-bottom{
-    height:10px;
-    background:repeating-linear-gradient(
-      -35deg,
-      #14171c 0 22px,
-      var(--paper) 22px 44px
-    );
-    border-top:1px solid var(--line);
-  }
+  .hero-meta span{ color:var(--ink-faint); }
+  .hero-meta b{ color:var(--ink-dim); font-weight:500; }
 
   /* ---------- ABOUT ---------- */
-  .about-grid{
-    display:grid;
-    grid-template-columns:1fr;
-    gap:2rem;
-  }
   .about-lead{
-    font-family:'Fraunces', serif;
-    font-size:1.5rem;
+    font-family:var(--font);
+    font-size:1.15rem;
     font-weight:500;
-    font-style:italic;
-    line-height:1.5;
+    line-height:1.6;
     color:var(--paper);
-    max-width:34ch;
+    max-width:48ch;
   }
   .about-body p{
     color:var(--ink-dim);
-    margin:0 0 1rem;
+    margin:1rem 0 0;
   }
-  .alias-card{
-    margin-top:1.6rem;
-    border-left:2px solid var(--amber);
-    padding:0.9rem 1.2rem;
-    background:linear-gradient(120deg, rgba(95,168,160,0.08), var(--bg-alt) 60%);
-    border-radius:0 var(--radius) var(--radius) 0;
+  .about-body a{
+    display:inline-flex; align-items:center; gap:0.4rem;
+    font-family:var(--font); font-size:0.85rem; color:var(--amber);
+    text-decoration:none; border-bottom:1px solid var(--amber);
+    margin-top:1.4rem;
   }
-  .alias-card .k{
-    font-family:'JetBrains Mono', monospace;
-    font-size:0.7rem; letter-spacing:0.1em;
-    text-transform:uppercase; color:var(--teal);
-  }
-  .alias-card p{ margin:0.4rem 0 0; color:var(--ink-dim); font-size:0.95rem;}
 
-  /* ---------- TIMELINE (SIGNATURE) ---------- */
+  /* ---------- SKILLS TIMELINE (SIGNATURE) ---------- */
   .timeline-wrap{
-    position:relative;
     border:1px solid var(--line);
     border-radius:var(--radius);
-    background:linear-gradient(165deg, var(--bg-alt), var(--bg-raised));
+    background:var(--bg-alt);
     overflow:hidden;
-    box-shadow:0 0 0 1px rgba(232,163,61,0.06), 0 20px 50px -30px rgba(232,163,61,0.35);
-  }
-  .timeline-wrap::before{
-    content:"";
-    position:absolute; top:0; left:-30%;
-    width:30%; height:100%;
-    background:linear-gradient(90deg, transparent, rgba(232,163,61,0.10), rgba(95,168,160,0.08), transparent);
-    animation:sheen 7s ease-in-out infinite;
-    pointer-events:none;
-    z-index:1;
-  }
-  @keyframes sheen{
-    0%{ left:-30%; }
-    50%{ left:110%; }
-    100%{ left:110%; }
   }
   .tracks-area{ position:relative; }
-  .playhead{
-    position:absolute;
-    top:0; bottom:0; left:8%;
-    width:2px;
-    background:linear-gradient(180deg, var(--amber), var(--teal));
-    box-shadow:0 0 14px 2px rgba(232,163,61,0.55);
-    opacity:0;
-    transition:left 0.55s cubic-bezier(.2,.8,.3,1), opacity 0.4s ease;
-    pointer-events:none;
-    z-index:3;
-  }
-  .playhead::before{
-    content:"";
-    position:absolute; top:-4px; left:50%;
-    width:8px; height:8px;
-    transform:translateX(-50%);
-    border-radius:50%;
-    background:var(--amber);
-    box-shadow:0 0 8px 2px rgba(232,163,61,0.8);
-  }
-  .playhead.shown{ opacity:1; }
-  .ruler{
-    display:flex;
-    font-family:'JetBrains Mono', monospace;
-    font-size:0.65rem;
-    color:var(--ink-faint);
-    border-bottom:1px solid var(--line);
-    padding:0.5rem 1rem;
-    justify-content:space-between;
-    position:relative; z-index:2;
-  }
   .track{
     display:flex;
     border-bottom:1px solid var(--line);
     align-items:stretch;
-    min-height:64px;
-    position:relative; z-index:2;
+    min-height:60px;
   }
   .track:last-child{ border-bottom:none; }
   .track-label{
-    width:92px;
+    width:88px;
     flex-shrink:0;
-    font-family:'JetBrains Mono', monospace;
-    font-size:0.72rem;
+    font-family:var(--font);
+    font-size:0.7rem;
     color:var(--ink-dim);
     display:flex; flex-direction:column;
     justify-content:center;
     padding:0.6rem 0.8rem;
     border-right:1px solid var(--line);
-    background:linear-gradient(180deg, rgba(0,0,0,0.22), rgba(0,0,0,0.1));
   }
-  .track-label b{ color:var(--ink); font-size:0.8rem; }
+  .track-label b{ color:var(--ink); font-size:0.78rem; }
   .clips{
     display:flex; align-items:center;
     gap:0.5rem;
@@ -381,55 +236,46 @@
     flex:1;
   }
   .clip{
-    font-family:'JetBrains Mono', monospace;
+    font-family:var(--font);
     font-size:0.76rem;
-    padding:0.5rem 0.8rem;
+    padding:0.45rem 0.75rem;
     border-radius:2px;
     cursor:pointer;
-    border:1px solid transparent;
-    transition:transform 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
-    color:#14171c;
-    font-weight:600;
+    border:1px solid var(--line);
+    background:transparent;
+    color:var(--ink-dim);
+    transition:border-color 0.15s ease, color 0.15s ease;
   }
   .clip:hover, .clip:focus-visible{
-    transform:translateY(-3px) scale(1.03);
-    border-color:rgba(20,23,28,0.4);
+    color:var(--ink);
     outline:none;
   }
-  .clip.active{ transform:translateY(-2px) scale(1.03); }
-  .track-video .clip{ background:linear-gradient(135deg, #f6c785, var(--amber)); }
-  .track-code .clip{ background:linear-gradient(135deg, #8fd4cb, var(--teal)); }
-  .track-audio .clip{ background:linear-gradient(135deg, #f0e4c4, #d8c9a3); }
-  .track-video .clip.active{ box-shadow:0 0 0 2px #14171c, 0 0 20px 3px rgba(232,163,61,0.7); }
-  .track-code .clip.active{ box-shadow:0 0 0 2px #14171c, 0 0 20px 3px rgba(95,168,160,0.7); }
-  .track-audio .clip.active{ box-shadow:0 0 0 2px #14171c, 0 0 20px 3px rgba(216,201,163,0.7); }
+  .track-video .clip.active{ border-color:var(--amber); color:var(--amber); }
+  .track-code .clip.active{ border-color:var(--teal); color:var(--teal); }
+  .track-audio .clip.active{ border-color:var(--crimson); color:var(--crimson); }
 
   .monitor{
     margin:0;
-    padding:1.1rem 1.3rem;
-    background:linear-gradient(180deg, #0f1115, #0a0c0f);
+    padding:1rem 1.2rem;
     border-top:1px solid var(--line);
-    min-height:76px;
-    position:relative; z-index:2;
+    min-height:70px;
     display:flex;
     gap:1rem;
     align-items:flex-start;
   }
   .monitor-text{ flex:1; min-width:0; }
   .monitor .k{
-    font-family:'JetBrains Mono', monospace;
-    font-size:0.68rem; letter-spacing:0.08em; text-transform:uppercase;
-    background:linear-gradient(90deg, var(--amber), #f2c675);
-    -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;
+    font-family:var(--font);
+    font-size:0.68rem; color:var(--ink-faint);
   }
   .monitor p{
     margin:0.4rem 0 0;
     color:var(--ink-dim);
-    font-size:0.92rem;
+    font-size:0.9rem;
   }
   .monitor-img{
     flex-shrink:0;
-    width:96px; height:96px;
+    width:88px; height:88px;
     border-radius:2px;
     object-fit:cover;
     border:1px solid var(--line);
@@ -447,39 +293,40 @@
   }
   .credits-list li{
     display:grid;
-    grid-template-columns:110px 1fr auto;
-    gap:1rem;
-    padding:0.95rem 0;
+    grid-template-columns:1fr auto;
+    gap:0.3rem 1rem;
+    padding:0.9rem 0;
     border-bottom:1px solid var(--line);
     align-items:baseline;
   }
   .credits-list li:last-child{ border-bottom:none; }
-  .credits-list .role{ font-weight:600; color:var(--paper); }
-  .credits-list .org{ color:var(--ink-dim); font-size:0.92rem; }
+  .credits-list .role{ font-weight:600; color:var(--paper); grid-column:1; }
+  .credits-list .org{ color:var(--ink-dim); font-size:0.9rem; grid-column:1; }
   .credits-list .when{
-    font-family:'JetBrains Mono', monospace;
-    font-size:0.7rem; color:var(--ink-faint);
+    font-family:var(--font);
+    font-size:0.72rem; color:var(--ink-faint);
     text-align:right; white-space:nowrap;
+    grid-row:1; grid-column:2;
   }
   @media (max-width:600px){
-    .credits-list li{ grid-template-columns:1fr; gap:0.2rem; }
-    .credits-list .when{ text-align:left; }
+    .credits-list li{ grid-template-columns:1fr; }
+    .credits-list .when{ text-align:left; grid-column:1; }
   }
 
   /* ---------- EDUCATION ---------- */
   .edu-item{
-    padding:1.4rem 0;
+    padding:1.2rem 0;
     border-bottom:1px solid var(--line);
     display:grid;
     grid-template-columns:1fr auto;
     gap:1rem;
   }
   .edu-item:last-child{ border-bottom:none; }
-  .edu-item h3{ font-size:1.15rem; font-weight:600; color:var(--paper); }
-  .edu-item .field{ color:var(--ink-dim); font-size:0.92rem; margin-top:0.2rem; }
-  .edu-item .note{ color:var(--teal); font-size:0.85rem; margin-top:0.4rem; }
+  .edu-item h3{ font-size:1.05rem; font-weight:600; color:var(--paper); }
+  .edu-item .field{ color:var(--ink-dim); font-size:0.9rem; margin-top:0.25rem; }
+  .edu-item .note{ color:var(--teal); font-size:0.85rem; margin-top:0.35rem; }
   .edu-item .when{
-    font-family:'JetBrains Mono', monospace;
+    font-family:var(--font);
     font-size:0.72rem; color:var(--ink-faint);
     white-space:nowrap;
   }
@@ -487,83 +334,78 @@
   /* ---------- CERTS ---------- */
   .cert-grid{
     display:grid;
-    grid-template-columns:repeat(auto-fill, minmax(240px,1fr));
-    gap:0.9rem;
+    grid-template-columns:repeat(auto-fill, minmax(230px,1fr));
+    gap:0.7rem;
   }
   .cert{
     border:1px solid var(--line);
     border-radius:var(--radius);
-    padding:1rem 1.1rem;
-    background:linear-gradient(160deg, var(--bg-alt), var(--bg-raised));
-    transition:border-color 0.2s;
+    padding:0.9rem 1rem;
   }
-  .cert:hover{ border-color:rgba(95,168,160,0.5); }
-  .cert .title{ font-weight:600; font-size:0.95rem; color:var(--paper); }
-  .cert .org{ color:var(--ink-dim); font-size:0.82rem; margin-top:0.25rem; }
+  .cert .title{ font-weight:600; font-size:0.9rem; color:var(--paper); }
+  .cert .org{ color:var(--ink-dim); font-size:0.8rem; margin-top:0.25rem; }
   .cert .date{
-    font-family:'JetBrains Mono', monospace;
+    font-family:var(--font);
     font-size:0.68rem; color:var(--ink-faint); margin-top:0.5rem;
   }
 
-  .lang-row{ display:flex; gap:2.5rem; margin-top:2.2rem; flex-wrap:wrap; }
-  .lang-row .lang b{ display:block; font-size:1rem; color:var(--paper); }
-  .lang-row .lang span{ color:var(--ink-dim); font-size:0.85rem; }
+  .lang-row{ display:flex; gap:2.5rem; margin-top:2rem; flex-wrap:wrap; }
+  .lang-row .lang b{ display:block; font-size:0.95rem; color:var(--paper); }
+  .lang-row .lang span{ color:var(--ink-dim); font-size:0.82rem; }
 
   /* ---------- PROJECTS ---------- */
   .proj-grid{
     display:grid;
-    grid-template-columns:repeat(auto-fit, minmax(250px,1fr));
+    grid-template-columns:repeat(auto-fit, minmax(240px,1fr));
     gap:1rem;
   }
   .proj{
     border:1px solid var(--line);
     border-radius:var(--radius);
-    padding:1.4rem;
-    background:linear-gradient(160deg, var(--bg-alt), var(--bg-raised));
-    display:flex; flex-direction:column; gap:0.6rem;
+    padding:1.2rem;
+    display:flex; flex-direction:column; gap:0.5rem;
     text-decoration:none;
-    transition:border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+    transition:border-color 0.15s;
   }
-  .proj:hover{ border-color:var(--amber); transform:translateY(-3px); box-shadow:0 12px 28px -14px rgba(232,163,61,0.35); }
+  .proj:hover{ border-color:var(--amber); }
   .proj .tag{
-    font-family:'JetBrains Mono', monospace;
-    font-size:0.65rem; letter-spacing:0.08em; text-transform:uppercase;
-    color:var(--amber);
+    font-family:var(--font);
+    font-size:0.65rem; letter-spacing:0.05em;
+    color:var(--ink-faint);
   }
-  .proj h3{ font-size:1.15rem; }
-  .proj p{ color:var(--ink-dim); font-size:0.88rem; margin:0; }
-  .proj .go{ font-family:'JetBrains Mono', monospace; font-size:0.78rem; color:var(--teal); margin-top:auto; }
+  .proj h3{ font-size:1.05rem; color:var(--paper); }
+  .proj p{ color:var(--ink-dim); font-size:0.86rem; margin:0; }
+  .proj .go{ font-family:var(--font); font-size:0.78rem; color:var(--amber); margin-top:auto; }
 
   /* ---------- INTERACTIVE BEAT PAD ---------- */
   .beatpad-wrap {
-    margin-top: 1.5rem;
+    margin-top: 1.4rem;
     border: 1px solid var(--line);
     border-radius: var(--radius);
-    padding: 1.4rem;
-    background: linear-gradient(160deg, var(--bg-alt), var(--bg-raised));
+    padding: 1.3rem;
   }
   .beatpad-header {
     display: flex;
     justify-content: space-between;
     align-items: baseline;
-    margin-bottom: 1.2rem;
+    margin-bottom: 1.1rem;
     flex-wrap: wrap;
     gap: 0.5rem;
   }
   .pad-hint {
-    font-family: 'JetBrains Mono', monospace;
+    font-family: var(--font);
     font-size: 0.72rem;
     color: var(--ink-faint);
   }
   .pad-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 0.7rem;
-    max-width: 420px;
+    gap: 0.6rem;
+    max-width: 400px;
     margin: 0 auto;
   }
   .pad-btn {
-    background: #14171c;
+    background: transparent;
     border: 1px solid var(--line);
     border-radius: var(--radius);
     aspect-ratio: 1 / 1;
@@ -572,98 +414,34 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 0.4rem;
-    transition: transform 0.08s ease, border-color 0.15s ease, box-shadow 0.08s ease, background 0.15s ease;
+    gap: 0.35rem;
+    transition: border-color 0.12s ease, color 0.12s ease;
     user-select: none;
+    color: var(--ink-dim);
   }
   .pad-btn:hover {
-    border-color: rgba(232,163,61,0.4);
+    border-color: var(--ink-dim);
   }
   .pad-btn.playing {
-    transform: scale(0.96);
     border-color: var(--amber);
-    background: linear-gradient(180deg, #1f1a14, #14171c);
-    box-shadow: 0 0 18px rgba(232,163,61,0.35);
+    color: var(--amber);
   }
   .pad-kbd {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.75rem;
+    font-family: var(--font);
+    font-size: 0.72rem;
     font-weight: 700;
-    color: var(--amber);
-    border: 1px solid rgba(232,163,61,0.3);
-    padding: 0.15rem 0.45rem;
-    border-radius: 2px;
   }
   .pad-name {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.72rem;
-    color: var(--paper);
-    font-weight: 600;
-    letter-spacing: 0.05em;
+    font-family: var(--font);
+    font-size: 0.68rem;
+    letter-spacing: 0.03em;
   }
 
-  /* ---------- FILM STRIP HOVER TOOLTIP ---------- */
-  .film-strip-tooltip {
-    position: fixed;
-    z-index: 1000;
-    pointer-events: none;
-    opacity: 0;
-    transform: translateY(8px) scale(0.97);
-    transition: opacity 0.2s ease, transform 0.2s ease;
-    width: 280px;
-    background: var(--bg-alt);
-    border: 1px solid var(--line);
-    border-radius: var(--radius);
-    box-shadow: 0 16px 36px -8px rgba(0,0,0,0.75), 0 0 0 1px rgba(232,163,61,0.18);
-    overflow: hidden;
-  }
-  .film-strip-tooltip.visible {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
-  .film-strip-holes {
-    height: 12px;
-    background:
-      repeating-linear-gradient(
-        90deg,
-        transparent 0px,
-        transparent 10px,
-        #14171c 10px,
-        #14171c 18px
-      ),
-      var(--bg-alt);
-    border-bottom: 1px solid var(--line);
-  }
-  .film-strip-holes.bottom {
-    border-bottom: none;
-    border-top: 1px solid var(--line);
-  }
-  .film-strip-content {
-    padding: 1rem 1.1rem;
-    font-family: 'Inter', sans-serif;
-  }
-  .film-strip-meta {
-    display: flex;
-    justify-content: space-between;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.68rem;
-    color: var(--amber);
-    margin-bottom: 0.45rem;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-  }
-  .film-strip-title {
-    font-family: 'Fraunces', serif;
-    font-size: 1.05rem;
-    font-weight: 600;
-    color: var(--paper);
-    margin-bottom: 0.4rem;
-  }
-  .film-strip-desc {
-    font-size: 0.82rem;
-    color: var(--ink-dim);
-    line-height: 1.45;
-    margin: 0;
+  /* ---------- FILM ROLE CAPTION ---------- */
+  .film-desc{
+    color:var(--ink-faint);
+    font-size:0.82rem;
+    margin-top:0.4rem;
   }
 
   /* ---------- CUSTOM VIDEO PLAY/PAUSE ---------- */
@@ -671,98 +449,77 @@
   .video-embed iframe{ pointer-events:none; }
   .yt-toggle{
     position:absolute;
-    right:14px; bottom:14px;
-    width:44px; height:44px;
+    right:10px; bottom:10px;
+    width:36px; height:36px;
     border-radius:50%;
-    border:none;
+    border:1px solid var(--line);
     cursor:pointer;
-    background:linear-gradient(135deg, var(--amber), var(--crimson));
-    box-shadow:0 6px 18px -4px rgba(0,0,0,0.5);
+    background:rgba(21,23,26,0.85);
     display:flex; align-items:center; justify-content:center;
-    transition:transform 0.15s ease, opacity 0.2s ease;
-    opacity:0.88;
+    transition:border-color 0.15s ease;
   }
-  .yt-toggle:hover{ transform:scale(1.08); opacity:1; }
+  .yt-toggle:hover{ border-color:var(--amber); }
   .yt-toggle::before{
     content:"";
     width:0; height:0;
     border-style:solid;
-    border-width:8px 0 8px 13px;
-    border-color:transparent transparent transparent #14171c;
+    border-width:7px 0 7px 11px;
+    border-color:transparent transparent transparent var(--ink);
     margin-left:3px;
   }
   .yt-toggle.playing::before{
-    width:11px; height:14px;
+    width:9px; height:12px;
     border-style:double;
-    border-width:0 0 0 11px;
-    border-color:#14171c;
+    border-width:0 0 0 9px;
+    border-color:var(--ink);
     margin-left:0;
   }
 
   /* ---------- FOOTER / CONTACT ---------- */
   footer{
-    padding:4.5rem 1.5rem 3rem;
-    max-width:920px; margin:0 auto;
+    padding:3.6rem 1.5rem 3rem;
+    max-width:860px; margin:0 auto;
     text-align:center;
   }
-  footer h2{ font-size:2.1rem; margin-bottom:0.8rem; }
-  footer p{ color:var(--ink-dim); max-width:40ch; margin:0 auto 2rem; }
+  footer h2{ font-size:1.7rem; margin-bottom:0.7rem; color:var(--paper); }
+  footer p{ color:var(--ink-dim); max-width:44ch; margin:0 auto 1.8rem; }
   .contact-links{
-    display:flex; justify-content:center; gap:0.9rem; flex-wrap:wrap;
+    display:flex; justify-content:center; gap:0.8rem; flex-wrap:wrap;
   }
   .contact-links a{
-    width:50px; height:50px;
+    width:44px; height:44px;
     display:flex; align-items:center; justify-content:center;
     border:1px solid var(--line);
     border-radius:50%;
     text-decoration:none;
-    color:var(--ink);
-    transition:border-color 0.2s, color 0.2s, background 0.2s, transform 0.2s;
+    color:var(--ink-dim);
+    transition:border-color 0.15s, color 0.15s;
   }
   .contact-links a svg{
-    width:20px; height:20px;
+    width:18px; height:18px;
     fill:currentColor;
   }
   .contact-links a:hover{
     border-color:var(--amber);
-    color:#14171c;
-    background:linear-gradient(120deg, var(--amber), #f2c675);
-    transform:translateY(-3px);
-  }
-  /* ÖZEL E-POSTA BUTONU VURGUSU */
-  .contact-links a[href^="mailto:"]{
-    border-color:var(--amber);
-    color:#14171c;
-    background:linear-gradient(120deg, var(--amber), #f2c675);
+    color:var(--amber);
   }
   .fine-print{
-    margin-top:3rem;
-    font-family:'JetBrains Mono', monospace;
+    margin-top:2.6rem;
+    font-family:var(--font);
     font-size:0.68rem;
     color:var(--ink-faint);
   }
 
   .reveal{
-    opacity:0; transform:translateY(16px);
-    transition:opacity 0.7s ease, transform 0.7s ease;
+    opacity:0; transform:translateY(10px);
+    transition:opacity 0.5s ease, transform 0.5s ease;
   }
   .reveal.in{ opacity:1; transform:translateY(0); }
 
   h2.section-title{
-    font-size:clamp(1.7rem, 4vw, 2.3rem);
-    margin-bottom:2.2rem;
+    font-size:clamp(1.4rem, 3vw, 1.7rem);
+    margin-bottom:1.8rem;
     color:var(--paper);
-    position:relative;
-    display:inline-block;
-    padding-bottom:0.7rem;
-  }
-  h2.section-title::after{
-    content:"";
-    position:absolute;
-    left:0; bottom:0;
-    width:56px; height:3px;
-    border-radius:3px;
-    background:linear-gradient(90deg, var(--amber), var(--crimson));
   }
 </style>
 </head>
@@ -770,7 +527,7 @@
 
 <nav>
   <div class="nav-inner">
-    <div class="nav-mark"><span class="rec"></span> M. ÖZÇELİK</div>
+    <a href="#top" class="nav-mark">M. ÖZÇELİK</a>
     <div class="nav-links">
       <a href="#hakkinda" data-i18n="nav_about">Hakkında</a>
       <a href="#filmler" data-i18n="nav_films">Filmler</a>
@@ -785,52 +542,31 @@
   </div>
 </nav>
 
-<header class="hero">
-  <div class="slate">
-    <div class="slate-stripes"></div>
-    <div class="slate-body">
-      <div class="eyebrow" data-i18n="hero_eyebrow">Portfolyo</div>
-      <h1 class="slate-title">Murat <em>Özçelik</em></h1>
-      <p class="slate-tag" data-i18n="hero_tag">Radyo, Televizyon ve Sinema öğrencisiyim. Yazılım, video kurgu ve ses prodüksiyonuyla uğraşıyorum.</p>
-      <div class="slate-fields">
-        <div class="slate-field"><span class="k" data-i18n="field_birth_k">Doğum</span><span class="v" data-i18n="field_birth_v">2004, İstanbul</span></div>
-        <div class="slate-field"><span class="k" data-i18n="field_role_k">Rol</span><span class="v" data-i18n="field_role_v">Yönetmen · Geliştirici</span></div>
-        <div class="slate-field"><span class="k" data-i18n="field_dept_k">Bölüm</span><span class="v" data-i18n="field_dept_v">Radyo, TV ve Sinema</span></div>
-        <div class="slate-field"><span class="k" data-i18n="field_alias_k">Mahlas</span><span class="v" data-i18n="field_alias_v">M. Özçelik</span></div>
-      </div>
-    </div>
-    <div class="slate-stripes-bottom"></div>
+<header class="hero" id="top">
+  <h1 class="hero-title">Murat Özçelik</h1>
+  <p class="hero-tag" data-i18n="hero_tag">Radyo, Televizyon ve Sinema öğrencisiyim. Yazılım, video kurgu ve ses prodüksiyonuyla uğraşıyorum.</p>
+  <div class="hero-meta">
+    <span><b data-i18n="field_birth_v">2004, İstanbul</b></span>
+    <span><b data-i18n="field_role_v">Yönetmen · Geliştirici</b></span>
+    <span><b data-i18n="field_alias_v">M. Özçelik</b></span>
   </div>
 </header>
 
 <section id="hakkinda" class="reveal">
-  <div class="eyebrow" data-i18n="nav_about">Hakkında</div>
   <h2 class="section-title" data-i18n="nav_about">Hakkında</h2>
-  <div class="about-grid">
-    <p class="about-lead" data-i18n="about_teaser_lead">Teknoloji, sinema ve ses prodüksiyonunun kesişim noktasında çok yönlü projeler üretiyorum.</p>
-    <div class="about-body">
-      <p data-i18n="about_teaser_p">Ben M. Özçelik. Memnun oldum.</p>
-      <div style="margin-top:1.5rem;">
-        <a href="about.html" style="display:inline-flex; align-items:center; gap:0.5rem; font-family:'JetBrains Mono', monospace; font-size:0.85rem; color:var(--amber); text-decoration:none; border:1px solid var(--line); padding:0.6rem 1rem; border-radius:var(--radius); background:var(--bg-alt); transition:border-color 0.2s, transform 0.2s;" data-i18n="about_read_more">
-          Hikâyemin Devamı &amp; Vizyonum →
-        </a>
-      </div>
-    </div>
+  <p class="about-lead" data-i18n="about_teaser_lead">Teknoloji, sinema ve ses prodüksiyonunun kesişim noktasında çok yönlü projeler üretiyorum.</p>
+  <div class="about-body">
+    <p data-i18n="about_teaser_p">Ben M. Özçelik. Memnun oldum.</p>
+    <a href="about.html" data-i18n="about_read_more">Hikâyemin Devamı &amp; Vizyonum</a>
   </div>
 </section>
 
 <section id="zaman-cizelgesi" class="reveal">
-  <div class="eyebrow" data-i18n="nav_skills">Yetenekler</div>
   <h2 class="section-title" data-i18n="nav_skills">Yetenekler</h2>
-  <p style="color:var(--ink-dim); margin-top:-1.4rem; margin-bottom:2rem; font-size:0.95rem;" data-i18n="skills_hint">Bir öğeye dokun, altta açıklamasını gör.</p>
+  <p style="color:var(--ink-dim); margin-top:-1.2rem; margin-bottom:1.8rem; font-size:0.9rem;" data-i18n="skills_hint">Bir öğeye dokun, altta açıklamasını gör.</p>
 
   <div class="timeline-wrap">
     <div class="tracks-area">
-      <div class="playhead" id="playhead"></div>
-      <div class="ruler">
-        <span>00:00</span><span>00:10</span><span>00:20</span><span>00:30</span><span>00:40</span>
-      </div>
-
       <div class="track track-video">
         <div class="track-label"><b>V2</b> <span data-i18n="track_v2">Görsel &amp; Film</span></div>
         <div class="clips">
@@ -871,13 +607,12 @@
 </section>
 
 <section id="filmler" class="reveal">
-  <div class="eyebrow" data-i18n="nav_films">Filmler</div>
   <h2 class="section-title" data-i18n="nav_films">Filmler</h2>
   <div class="proj-grid">
     <div class="proj film-item" data-film="zamansiz" style="cursor:default;">
       <span class="tag" data-i18n="short_film_tag">Kısa Film</span>
       <h3 data-i18n="film_1_title">Zamansız Yolculuk</h3>
-      <p data-i18n="film_1_role">Yönetmenlik · Senaryo · Ses ve Müzik</p>
+      <p class="film-desc" data-i18n="film_1_role">Yönetmenlik · Senaryo · Ses ve Müzik</p>
       <div class="video-embed" style="aspect-ratio:16/9; margin-top:0.4rem; border-radius:2px; overflow:hidden; position:relative;">
         <iframe id="yt-zamansiz" width="100%" height="100%" src="https://www.youtube.com/embed/FaE6MVLz2mk?enablejsapi=1&controls=0&modestbranding=1&rel=0&iv_load_policy=3&autoplay=1&mute=1&playlist=FaE6MVLz2mk&loop=1" title="zamansız yolculuk. - Kısa Film" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="display:block;"></iframe>
         <button class="yt-toggle playing" data-target="yt-zamansiz" aria-label="Oynat / Duraklat"></button>
@@ -886,7 +621,7 @@
     <div class="proj film-item" data-film="gaia" style="cursor:default;">
       <span class="tag" data-i18n="short_film_tag">Kısa Film</span>
       <h3 data-i18n="film_2_title">Gaia'nın Çığlığı</h3>
-      <p data-i18n="film_2_role">Görüntü Yönetmenliği · Kurgu · Ses ve Müzik</p>
+      <p class="film-desc" data-i18n="film_2_role">Görüntü Yönetmenliği · Kurgu · Ses ve Müzik</p>
       <div class="video-embed" style="aspect-ratio:16/9; margin-top:0.4rem; border-radius:2px; overflow:hidden; position:relative;">
         <iframe id="yt-gaia" width="100%" height="100%" src="https://www.youtube.com/embed/VOI6pa3I4jM?enablejsapi=1&controls=0&modestbranding=1&rel=0&iv_load_policy=3&autoplay=1&mute=1&playlist=VOI6pa3I4jM&loop=1" title="gaiaeng" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="display:block;"></iframe>
         <button class="yt-toggle playing" data-target="yt-gaia" aria-label="Oynat / Duraklat"></button>
@@ -895,7 +630,7 @@
     <div class="proj film-item" data-film="distant" style="cursor:default;">
       <span class="tag" data-i18n="short_film_tag">Kısa Film</span>
       <h3>DISTANT</h3>
-      <p data-i18n="film_3_role">Yönetmenlik · Görüntü Yönetmenliği · Kurgu · Ses</p>
+      <p class="film-desc" data-i18n="film_3_role">Yönetmenlik · Görüntü Yönetmenliği · Kurgu · Ses</p>
       <div class="video-embed" style="aspect-ratio:16/9; margin-top:0.4rem; border-radius:2px; overflow:hidden; position:relative;">
         <iframe id="yt-distant" width="100%" height="100%" src="https://www.youtube.com/embed/tJGxSjigk_o?enablejsapi=1&controls=0&modestbranding=1&rel=0&iv_load_policy=3&autoplay=1&mute=1&playlist=tJGxSjigk_o&loop=1" title="DISTANT - Short Film" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="display:block;"></iframe>
         <button class="yt-toggle playing" data-target="yt-distant" aria-label="Oynat / Duraklat"></button>
@@ -905,7 +640,6 @@
 </section>
 
 <section id="katildigim-calismalar" class="reveal">
-  <div class="eyebrow" data-i18n="nav_credits">Katıldığım Çalışmalar</div>
   <h2 class="section-title" data-i18n="nav_credits">Katıldığım Çalışmalar</h2>
   <ul class="credits-list">
     <li>
@@ -922,7 +656,6 @@
 </section>
 
 <section id="deneyim" class="reveal">
-  <div class="eyebrow" data-i18n="nav_exp">Deneyim</div>
   <h2 class="section-title" data-i18n="nav_exp">Deneyim</h2>
   <ul class="credits-list">
     <li>
@@ -934,7 +667,6 @@
 </section>
 
 <section id="egitim" class="reveal">
-  <div class="eyebrow" data-i18n="nav_edu">Eğitim</div>
   <h2 class="section-title" data-i18n="nav_edu">Eğitim</h2>
 
   <div class="edu-item">
@@ -969,7 +701,6 @@
 </section>
 
 <section id="sertifikalar" class="reveal">
-  <div class="eyebrow" data-i18n="nav_certs">Sertifikalar</div>
   <h2 class="section-title" data-i18n="nav_certs">Sertifikalar</h2>
   <div class="cert-grid">
     <div class="cert"><div class="title" data-i18n="cert_1">DaVinci Resolve ile Video Kurgulama</div><div class="org">Bilgeİş</div><div class="date" data-i18n="cert_date_sep25">Eylül 2025</div></div>
@@ -986,26 +717,25 @@
 </section>
 
 <section id="projeler" class="reveal">
-  <div class="eyebrow" data-i18n="nav_projects">Projeler &amp; Yayınlar</div>
   <h2 class="section-title" data-i18n="nav_projects">Projeler &amp; Yayınlar</h2>
   <div class="proj-grid">
     <a class="proj" href="https://ilefbot.vercel.app" target="_blank" rel="noopener">
       <span class="tag" data-i18n="proj_tag_ai">Yapay Zeka</span>
       <h3>İLEFBot</h3>
       <p data-i18n="proj_1_desc">Bolu Abant İzzet Baysal Üniversitesi İletişim Fakültesi için geliştirdiğim yapay zekâ projesi. Fakülte hakkındaki soruları yanıtlıyor.</p>
-      <span class="go" data-i18n="proj_1_link">Projeyi gör →</span>
+      <span class="go" data-i18n="proj_1_link">Projeyi gör</span>
     </a>
     <a class="proj" href="https://open.spotify.com/intl-tr/artist/2BlTVMDj9GnFcdL9kGWNOf?si=sQF4J5UmRxGDNdtvlBTSRQ" target="_blank" rel="noopener">
       <span class="tag" data-i18n="proj_tag_music">Müzik</span>
       <h3>Spotify — M. Özçelik</h3>
       <p data-i18n="proj_2_desc">Tüm müzik çalışmalarımın olduğu sanatçı profili.</p>
-      <span class="go" data-i18n="proj_2_link">Spotify'da dinle →</span>
+      <span class="go" data-i18n="proj_2_link">Spotify'da dinle</span>
     </a>
     <a class="proj" href="https://github.com/MOzcelik14" target="_blank" rel="noopener">
       <span class="tag" data-i18n="proj_tag_code">Kod</span>
       <h3 data-i18n="proj_3_title">GitHub Profilim</h3>
       <p data-i18n="proj_3_desc">Yazılım projelerimi paylaştığım profil.</p>
-      <span class="go" data-i18n="proj_3_link">GitHub'da gör →</span>
+      <span class="go" data-i18n="proj_3_link">GitHub'da gör</span>
     </a>
   </div>
 
@@ -1014,7 +744,7 @@
     <div class="beatpad-header">
       <div>
         <div class="eyebrow" style="margin-bottom:0.3rem;" data-i18n="pad_eyebrow">İnteraktif Ses Tasarımı</div>
-        <h3 data-i18n="pad_title">Sitemden sıkılmış biçimde ayrılmanızı istemem :D</h3>
+        <h3 data-i18n="pad_title" style="font-size:1rem; color:var(--paper);">Sitemden sıkılmış biçimde ayrılmanızı istemem :D</h3>
       </div>
       <span class="pad-hint" data-i18n="pad_hint">Klavye: Q W E / A S D / Z X C</span>
     </div>
@@ -1064,7 +794,6 @@
 </section>
 
 <footer id="iletisim">
-  <div class="eyebrow" style="justify-content:center;" data-i18n="nav_contact">İletişim</div>
   <h2 data-i18n="contact_title">İletişime geç</h2>
   <p data-i18n="contact_desc">Çekinmeyin lütfen, bana aşağıdaki platformların hepsinden ulaşabilirsiniz.</p>
   <div class="contact-links">
@@ -1087,20 +816,6 @@
   <div class="fine-print">© 2026 Murat Özçelik</div>
 </footer>
 
-<!-- Film Şeridi Bilgi Kutucu -->
-<div id="film-tooltip" class="film-strip-tooltip">
-  <div class="film-strip-holes"></div>
-  <div class="film-strip-content">
-    <div class="film-strip-meta">
-      <span id="tooltip-meta-time">00:00</span>
-      <span id="tooltip-meta-genre">Bilimkurgu · 2025</span>
-    </div>
-    <div id="tooltip-title" class="film-strip-title">Zamansız Yolculuk</div>
-    <p id="tooltip-desc" class="film-strip-desc">Zaman ve mekân algısını sorgulayan deneysel bir kısa film çalışması.</p>
-  </div>
-  <div class="film-strip-holes bottom"></div>
-</div>
-
 <script>
   // ---------- TRANSLATION DICTIONARY & LOGIC ----------
   const translations = {
@@ -1114,19 +829,13 @@
       nav_certs: "Sertifikalar",
       nav_projects: "Projeler & Yayınlar",
       nav_contact: "İletişim",
-      hero_eyebrow: "Portfolyo",
       hero_tag: "Radyo, Televizyon ve Sinema öğrencisiyim. Yazılım, video kurgu ve ses prodüksiyonuyla uğraşıyorum.",
-      field_birth_k: "Doğum",
       field_birth_v: "2004, İstanbul",
-      field_role_k: "Rol",
       field_role_v: "Yönetmen · Geliştirici",
-      field_dept_k: "Bölüm",
-      field_dept_v: "Radyo, TV ve Sinema",
-      field_alias_k: "Mahlas",
       field_alias_v: "M. Özçelik",
       about_teaser_lead: "Teknoloji, sinema ve ses prodüksiyonunun kesişim noktasında çok yönlü projeler üretiyorum.",
       about_teaser_p: "Ben M. Özçelik. Sizlerle tanıştığıma memnun oldum.",
-      about_read_more: "Hikâyemin Devamı →",
+      about_read_more: "Hikâyemin Devamı",
       skills_hint: "Bir öğeye dokun, altta açıklamasını gör.",
       track_v2: "Görsel & Film",
       track_v1: "Yazılım",
@@ -1178,12 +887,12 @@
       proj_tag_music: "Müzik",
       proj_tag_code: "Kod",
       proj_1_desc: "Bolu Abant İzzet Baysal Üniversitesi İletişim Fakültesi için geliştirdiğim yapay zekâ projesi. Fakülte hakkındaki soruları yanıtlıyor.",
-      proj_1_link: "Projeyi gör →",
+      proj_1_link: "Projeyi gör",
       proj_2_desc: "Tüm müzik çalışmalarımın olduğu sanatçı profili.",
-      proj_2_link: "Spotify'da dinle →",
+      proj_2_link: "Spotify'da dinle",
       proj_3_title: "GitHub Profilim",
       proj_3_desc: "Yazılım projelerimi paylaştığım profil.",
-      proj_3_link: "GitHub'da gör →",
+      proj_3_link: "GitHub'da gör",
       contact_title: "İletişime geç",
       contact_desc: "Çekinmeyin lütfen, bana aşağıdaki platformların hepsinden ulaşabilirsiniz.",
       contact_email: "E-posta",
@@ -1210,26 +919,6 @@
         sound_design: { title: "Ses Tasarımı", desc: "Film ve proje sesleri için ses tasarımı yapıyorum." },
         audacity: { title: "Audacity", desc: "Ses düzenleme için kullanıyorum. Bilgeİş'ten sertifikam var." },
         fl_studio: { title: "FL Studio & Ableton", desc: "M. Özçelik mahlasıyla beat, film müziği ve deneysel elektronik müzik yapıyorum." }
-      },
-      films: {
-        zamansiz: {
-          title: "Zamansız Yolculuk",
-          time: "10:24",
-          genre: "Deneysel · 2025",
-          desc: "Zaman ve mekân algısını sorgulayan, sinematografik atmosferi güçlü deneysel kısa film çalışması."
-        },
-        gaia: {
-          title: "Gaia'nın Çığlığı",
-          time: "06:56",
-          genre: "Çevre / Drama · 2026",
-          desc: "İnsanlığın doğayla olan çatışmasını ve ekolojik yıkımı görsel bir estetikle ele alan proje."
-        },
-        distant: {
-          title: "DISTANT",
-          time: "07:24",
-          genre: "Drama / Gizem · 2026",
-          desc: "İletişimsizliği ve modern yalnızlığı merkezine alan kısa film projesi."
-        }
       }
     },
     en: {
@@ -1242,19 +931,13 @@
       nav_certs: "Certifications",
       nav_projects: "Projects & Releases",
       nav_contact: "Contact",
-      hero_eyebrow: "Portfolio",
       hero_tag: "Radio, TV, and Cinema student. Working across software development, video editing, and audio production.",
-      field_birth_k: "Born",
       field_birth_v: "2004, Istanbul",
-      field_role_k: "Role",
       field_role_v: "Director · Developer",
-      field_dept_k: "Department",
-      field_dept_v: "Radio, TV & Cinema",
-      field_alias_k: "Moniker",
       field_alias_v: "M. Özçelik",
       about_teaser_lead: "Creating multidisciplinary projects at the intersection of technology, cinema, and audio production.",
       about_teaser_p: "I'm M. Özçelik. Pleasure to meet you all.",
-      about_read_more: "Read My Full Story →",
+      about_read_more: "Read My Full Story",
       skills_hint: "Click an item to see its details below.",
       track_v2: "Visual & Film",
       track_v1: "Software",
@@ -1306,12 +989,12 @@
       proj_tag_music: "Music",
       proj_tag_code: "Code",
       proj_1_desc: "An AI assistant developed for the Faculty of Communication at Bolu Abant İzzet Baysal University. It answers inquiries regarding the faculty.",
-      proj_1_link: "View project →",
+      proj_1_link: "View project",
       proj_2_desc: "My artist profile showcasing all my musical releases and productions.",
-      proj_2_link: "Listen on Spotify →",
+      proj_2_link: "Listen on Spotify",
       proj_3_title: "GitHub Profile",
       proj_3_desc: "My profile where I share software development projects and repositories.",
-      proj_3_link: "View on GitHub →",
+      proj_3_link: "View on GitHub",
       contact_title: "Get in touch",
       contact_desc: "Please don't hesitate to reach out to me on any of the platforms below.",
       contact_email: "Email",
@@ -1338,26 +1021,6 @@
         sound_design: { title: "Sound Design", desc: "Creating sound design and atmospheres for short films and visual projects." },
         audacity: { title: "Audacity", desc: "Used for audio editing and post-processing. Certified by Bilgeİş." },
         fl_studio: { title: "FL Studio & Ableton", desc: "Producing beats, film scores, and experimental electronic music under the M. Özçelik alias." }
-      },
-      films: {
-        zamansiz: {
-          title: "Timeless Journey",
-          time: "10:24",
-          genre: "Experimental · 2025",
-          desc: "An experimental short film exploring the perception of time and space with a strong visual atmosphere."
-        },
-        gaia: {
-          title: "Gaia's Cry",
-          time: "06:56",
-          genre: "Eco / Drama · 2026",
-          desc: "A cinematic short film addressing humanity's conflict with nature and ecological destruction."
-        },
-        distant: {
-          title: "DISTANT",
-          time: "07:24",
-          genre: "Drama / Mystery · 2026",
-          desc: "A dramatic short film focusing on themes of miscommunication and modern isolation."
-        }
       }
     }
   };
@@ -1369,11 +1032,9 @@
     localStorage.setItem('site_lang', lang);
     document.documentElement.lang = lang;
 
-    // Toggle button active states
     document.getElementById('btn-tr').classList.toggle('active', lang === 'tr');
     document.getElementById('btn-en').classList.toggle('active', lang === 'en');
 
-    // Update simple text translations
     document.querySelectorAll('[data-i18n]').forEach(el => {
       const key = el.getAttribute('data-i18n');
       if (translations[lang][key]) {
@@ -1381,7 +1042,6 @@
       }
     });
 
-    // Update clip items (keeps existing data-img untouched)
     document.querySelectorAll('.clip').forEach(clip => {
       const clipKey = clip.getAttribute('data-key');
       if (clipKey && translations[lang].clips[clipKey]) {
@@ -1390,17 +1050,12 @@
         clip.dataset.title = clipData.title;
         clip.dataset.desc = clipData.desc;
 
-        // Refresh monitor preview if clip is currently active
         if (clip.classList.contains('active')) {
           document.getElementById('monitor-desc').textContent = clipData.desc;
         }
       }
     });
   }
-
-  // Monitor / clip preview interaction + playhead scrubbing (only moves on click)
-  const playhead = document.getElementById('playhead');
-  const tracksArea = document.querySelector('.tracks-area');
 
   document.querySelectorAll('.clip').forEach(clip => {
     clip.addEventListener('click', () => {
@@ -1417,18 +1072,9 @@
         monitorImg.classList.remove('shown');
         monitorImg.src = '';
       }
-
-      if (playhead && tracksArea) {
-        const areaRect = tracksArea.getBoundingClientRect();
-        const clipRect = clip.getBoundingClientRect();
-        const pct = ((clipRect.left + clipRect.width / 2) - areaRect.left) / areaRect.width * 100;
-        playhead.style.left = Math.max(0, Math.min(100, pct)) + '%';
-        playhead.classList.add('shown');
-      }
     });
   });
 
-  // Scroll reveal
   const revealEls = document.querySelectorAll('.reveal');
   const io = new IntersectionObserver((entries) => {
     entries.forEach(e => {
@@ -1440,7 +1086,6 @@
   }, { threshold: 0.12 });
   revealEls.forEach(el => io.observe(el));
 
-  // Custom YouTube play/pause (no native controls/title/seekbar)
   document.querySelectorAll('.yt-toggle').forEach(btn => {
     let playing = btn.classList.contains('playing');
     btn.addEventListener('click', () => {
@@ -1450,49 +1095,6 @@
       iframe.contentWindow.postMessage(JSON.stringify({ event: 'command', func: cmd, args: [] }), '*');
       playing = !playing;
       btn.classList.toggle('playing', playing);
-    });
-  });
-
-  // ---------- FILM STRIP HOVER TOOLTIP LOGIC ----------
-  const tooltip = document.getElementById('film-tooltip');
-  const tooltipTitle = document.getElementById('tooltip-title');
-  const tooltipDesc = document.getElementById('tooltip-desc');
-  const tooltipTime = document.getElementById('tooltip-meta-time');
-  const tooltipGenre = document.getElementById('tooltip-meta-genre');
-
-  document.querySelectorAll('.film-item').forEach(item => {
-    item.addEventListener('mouseenter', () => {
-      const filmKey = item.getAttribute('data-film');
-      const filmInfo = translations[currentLang]?.films?.[filmKey];
-
-      if (filmInfo) {
-        tooltipTitle.textContent = filmInfo.title;
-        tooltipDesc.textContent = filmInfo.desc;
-        tooltipTime.textContent = filmInfo.time;
-        tooltipGenre.textContent = filmInfo.genre;
-        tooltip.classList.add('visible');
-      }
-    });
-
-    item.addEventListener('mousemove', (e) => {
-      const offsetX = 16;
-      const offsetY = 16;
-      let x = e.clientX + offsetX;
-      let y = e.clientY + offsetY;
-
-      if (x + 280 > window.innerWidth) {
-        x = e.clientX - 280 - offsetX;
-      }
-      if (y + 130 > window.innerHeight) {
-        y = window.innerHeight - 140;
-      }
-
-      tooltip.style.left = x + 'px';
-      tooltip.style.top = y + 'px';
-    });
-
-    item.addEventListener('mouseleave', () => {
-      tooltip.classList.remove('visible');
     });
   });
 
@@ -1535,7 +1137,6 @@
       osc.stop(now + 0.35);
     }
     else if (type === 'snare') {
-      // Gerçek snare: kısa tonal "body" darbesi + gürültü katmanı
       const osc = audioCtx.createOscillator();
       const oscGain = audioCtx.createGain();
       osc.type = 'triangle';
@@ -1563,7 +1164,6 @@
       noise.start(now);
     }
     else if (type === 'hihat_closed') {
-      // Kısa, metalik kapalı hi-hat
       const noise = audioCtx.createBufferSource();
       noise.buffer = noiseBuffer(0.08);
       const filter = audioCtx.createBiquadFilter();
@@ -1578,7 +1178,6 @@
       noise.start(now);
     }
     else if (type === 'hihat_open') {
-      // Daha uzun sönümlü açık hi-hat
       const noise = audioCtx.createBufferSource();
       noise.buffer = noiseBuffer(0.4);
       const filter = audioCtx.createBiquadFilter();
@@ -1593,7 +1192,6 @@
       noise.start(now);
     }
     else if (type === 'clap') {
-      // Katmanlı kısa gürültü patlamaları — el çırpma dokusu
       [0, 0.02, 0.04].forEach(delay => {
         const noise = audioCtx.createBufferSource();
         noise.buffer = noiseBuffer(0.1);
@@ -1611,7 +1209,6 @@
       });
     }
     else if (type === 'rim') {
-      // Kısa perküsif "tık" — rimshot
       const osc = audioCtx.createOscillator();
       const gain = audioCtx.createGain();
       osc.type = 'square';
@@ -1624,7 +1221,6 @@
       osc.stop(now + 0.05);
     }
     else if (type === 'tom') {
-      // Alçak sinematik tom / darbe
       const osc = audioCtx.createOscillator();
       const gain = audioCtx.createGain();
       osc.type = 'sine';
@@ -1706,7 +1302,6 @@
     }
   });
 
-  // Initialize language on page load
   setLanguage(currentLang);
 </script>
 
