@@ -42,7 +42,7 @@ if(practice){
   const next=$('#practiceNext',practice);
   let active=0;
   const reducedMotion=window.matchMedia('(prefers-reduced-motion: reduce)');
-  const activate=(index,focusTab=false)=>{
+  const activate=(index,focusTab=false,scrollRail=false)=>{
     active=Math.max(0,Math.min(tabs.length-1,index));
     tabs.forEach((tab,i)=>{
       const selected=i===active;
@@ -56,11 +56,11 @@ if(practice){
     prev.disabled=active===0;
     next.disabled=active===tabs.length-1;
     if(focusTab)tabs[active].focus({preventScroll:true});
-    if(focusTab){
-      tabs[active].scrollIntoView({
-        behavior:reducedMotion.matches?'instant':'smooth',
-        block:'nearest',
-        inline:'center'
+    if(scrollRail){
+      const scroller=$('.practice-rail-scroll',practice);
+      if(scroller)scroller.scrollTo({
+        left:tabs[active].offsetLeft-scroller.clientWidth/2+tabs[active].clientWidth/2,
+        behavior:reducedMotion.matches?'auto':'smooth'
       });
     }
   };
@@ -74,10 +74,10 @@ if(practice){
       if(event.key==='End')target=tabs.length-1;
       if(target===null)return;
       event.preventDefault();
-      activate(target,true);
+      activate(target,true,true);
     });
   });
-  prev.addEventListener('click',()=>activate(active-1));
-  next.addEventListener('click',()=>activate(active+1));
+  prev.addEventListener('click',()=>activate(active-1,false,true));
+  next.addEventListener('click',()=>activate(active+1,false,true));
   activate(0);
 }
