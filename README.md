@@ -8,11 +8,11 @@ Live site: https://muratozcelik.vercel.app/
 
 - bilingual Turkish / English interface
 - responsive mobile navigation
-- featured project section led by Puresteel
+- cinematic layout with restrained gradients and responsive project cards for Puresteel OS, triM. and İLEFBot
 - short-film embeds with privacy-enhanced YouTube URLs
 - awards and selections
 - education and selected certifications
-- interactive Web Audio playground
+- interactive, keyboard-accessible practice timeline
 - SEO, Open Graph and structured-data metadata
 - Vercel deployment
 
