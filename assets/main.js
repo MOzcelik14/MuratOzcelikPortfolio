@@ -16,7 +16,8 @@ function setLanguage(lang){
   currentLang=lang==='en'?'en':'tr';
   localStorage.setItem('site_lang',currentLang);
   document.documentElement.lang=currentLang;
-  $$('[data-tr][data-en]').forEach(el=>{el.textContent=el.dataset[currentLang]});
+  $('[data-tr][data-en]').forEach(el=>{el.textContent=el.dataset[currentLang]});
+  $('[data-tr-aria-label][data-en-aria-label]').forEach(el=>el.setAttribute('aria-label',el.getAttribute('data-'+currentLang+'-aria-label')));
   $$('.lang-btn').forEach(b=>{const active=b.dataset.lang===currentLang;b.classList.toggle('active',active);b.setAttribute('aria-pressed',String(active))});
   if(menuBtn&&!navLinks?.classList.contains('open'))menuBtn.textContent=menuLabel(false);
   document.title=isAbout?(currentLang==='tr'?'Murat Özçelik | Hakkımda':'Murat Özçelik | About'):(currentLang==='tr'?'Murat Özçelik | Portfolyo':'Murat Özçelik | Portfolio');
