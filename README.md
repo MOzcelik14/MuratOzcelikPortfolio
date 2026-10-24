@@ -8,7 +8,7 @@ Live site: https://muratozcelik.vercel.app/
 
 - bilingual Turkish / English interface
 - responsive mobile navigation
-- cinematic layout with restrained gradients and responsive project cards for Puresteel OS, triM. and İLEFBot
+- cinematic editorial layout with responsive project cards for Puresteel OS, triM (Rust) and İLEFBot
 - short-film embeds with privacy-enhanced YouTube URLs
 - awards and selections
 - education and selected certifications
